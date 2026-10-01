@@ -656,5 +656,71 @@
 800,
 1400
 ]
+},
+"rot-trim-found": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"ext-process-wide": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-kitchen-hero": {
+"w": 4032,
+"h": 1753,
+"sizes": [
+800,
+1400,
+1920
+],
+"pos": "50% 40%"
+},
+"int-great-room-top": {
+"w": 3024,
+"h": 2499,
+"sizes": [
+800,
+1200
+]
+},
+"int-laundry-clean": {
+"w": 3030,
+"h": 3185,
+"sizes": [
+800,
+1200
+]
+},
+"commercial-storefront": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"commercial-office": {
+"w": 1600,
+"h": 1200,
+"sizes": [
+800,
+1400
+]
+},
+"hero-poster": {
+"w": 1600,
+"h": 900,
+"sizes": [
+800,
+1400
+]
 }
 }

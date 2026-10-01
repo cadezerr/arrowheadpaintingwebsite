@@ -125,7 +125,7 @@ function timeline(key, extraClass = "") {
     .join("\n");
   return `<section class="section tl-section ${extraClass}">
   <div class="wrap tl-grid">
-    <div class="tl-photo reveal"><div class="photo">${img(p.photo, p.alt, "(min-width: 960px) 40vw, 100vw")}</div></div>
+    <div class="tl-photo reveal${images[p.photo] && images[p.photo].w > images[p.photo].h ? " tl-land" : ""}"><div class="photo">${img(p.photo, p.alt, "(min-width: 960px) 40vw, 100vw")}</div></div>
     <div>
       <p class="kicker">How It Works</p>
       <h2>${esc(p.title)}</h2>
@@ -140,15 +140,16 @@ function climateSection(key) {
   const c = climate[key];
   if (!c) throw new Error(`Unknown climate block: ${key}`);
   const cards = c.items.map(([t, d]) => `<div class="card reveal">${icon(iconFor(t))}<h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("\n");
-  return `<section class="section bg-ink peak-top">
+  return `<section class="section climate-sec">
+  <div class="climate-deco" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="section-head center reveal">
       <p class="kicker">${esc(c.kicker)}</p>
       <h2>${esc(c.title)}</h2>
       <p class="lede">${esc(c.intro)}</p>
     </div>
-    <div class="cards">${cards}</div>
-    <div class="center mt-2"><a class="btn btn-white btn-lg" href="/contact/">Request A Free Estimate</a></div>
+    <div class="cards climate-cards">${cards}</div>
+    <div class="center mt-2"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
   </div>
 </section>`;
 }

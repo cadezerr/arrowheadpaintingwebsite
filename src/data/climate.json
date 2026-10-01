@@ -4,12 +4,30 @@
     "title": "Why Exterior House Painting In Kansas City Requires Specialized Expertise",
     "intro": "Kansas City homes face unique exterior painting challenges. Here's what your home is up against, and how we handle it.",
     "items": [
-      ["Seasonal Humidity", "Humid summers and dry winters make wood swell and shrink. We use flexible coatings and elastomeric caulk that move with your home instead of cracking."],
-      ["Extreme Temperature Swings", "From the 100s in summer to the negative teens in winter, freeze-thaw cycles open up joints and seams. Proper sealing keeps water out year-round."],
-      ["Wood Repair & Wood Rot", "Once water gets in, rot follows. We replace damaged wood before we paint, so your new finish has something solid to protect."],
-      ["UV Intensity", "Strong summer sun fades color and breaks down paint on south and west walls. Premium coatings hold their color longer."],
-      ["Wind & Impact Resistance", "Spring storms bring high winds, hail, and flying debris. Durable, well-bonded coatings stand up to the abuse."],
-      ["Moisture & Rainy Season", "Heavy spring rain tests every seam. We seal gaps and schedule around the weather so paint cures properly."]
+      [
+        "Seasonal Humidity",
+        "Humid summers and dry winters make wood swell and shrink. We use flexible coatings and elastomeric caulk that move with your home instead of cracking."
+      ],
+      [
+        "Extreme Temperature Swings",
+        "From the 100s in summer to the negative teens in winter, freeze-thaw cycles open up joints and seams. Proper sealing keeps water out year-round."
+      ],
+      [
+        "Wood Repair & Wood Rot",
+        "Once water gets in, rot follows. We replace damaged wood before we paint, so your new finish has something solid to protect."
+      ],
+      [
+        "UV Intensity",
+        "Strong summer sun bakes your whole home, fading color and breaking down paint. Premium coatings hold their color longer."
+      ],
+      [
+        "Wind & Impact Resistance",
+        "Spring storms bring high winds, hail, and flying debris. Durable, well-bonded coatings stand up to the abuse."
+      ],
+      [
+        "Moisture & Rainy Season",
+        "Heavy spring rain tests every seam. We seal gaps and schedule around the weather so paint cures properly."
+      ]
     ]
   },
   "interior": {
@@ -17,11 +35,26 @@
     "title": "Why Interior House Painting In Kansas City Requires Specialized Expertise",
     "intro": "Kansas City's climate affects the inside of your home too. Here's what we plan for.",
     "items": [
-      ["Seasonal Humidity", "Humidity rises and falls with the seasons, making trim and drywall expand and contract. We use products that stay flexible and resist cracking."],
-      ["Extreme Temperature Swings", "Running the heat in winter and the AC in summer dries out the air and stresses paint and caulk. Proper prep keeps joints tight and finishes smooth."],
-      ["Moisture-Prone Rooms", "Bathrooms, kitchens, laundry rooms, and basements need moisture- and mildew-resistant finishes that hold up."],
-      ["Sun Fading", "Strong sunlight through large windows can fade walls over time. Quality paint keeps colors true."],
-      ["Everyday Wear", "Hallways, kids' rooms, and mudrooms take a beating. Scrubbable, durable finishes keep them looking fresh."]
+      [
+        "Seasonal Humidity",
+        "Humidity rises and falls with the seasons, making trim and drywall expand and contract. We use products that stay flexible and resist cracking."
+      ],
+      [
+        "Extreme Temperature Swings",
+        "Running the heat in winter and the AC in summer dries out the air and stresses paint and caulk. Proper prep keeps joints tight and finishes smooth."
+      ],
+      [
+        "Moisture-Prone Rooms",
+        "Bathrooms, kitchens, laundry rooms, and basements need moisture- and mildew-resistant finishes that hold up."
+      ],
+      [
+        "Sun Fading",
+        "Strong sunlight through large windows can fade walls over time. Quality paint keeps colors true."
+      ],
+      [
+        "Everyday Wear",
+        "Hallways, kids' rooms, and mudrooms take a beating. Scrubbable, durable finishes keep them looking fresh."
+      ]
     ]
   },
   "general": {
@@ -29,12 +62,30 @@
     "title": "Why Painting In Kansas City Requires Specialized Expertise",
     "intro": "Kansas City homes face unique painting challenges inside and out. We know exactly what works in this climate.",
     "items": [
-      ["Seasonal Humidity", "Humidity swings make wood, trim, and drywall expand and contract. We choose flexible products that move with your home."],
-      ["Extreme Temperature Swings", "From the 100s in summer to the negative teens in winter, freeze-thaw cycles crack caulk and open seams. Proper sealing keeps water out."],
-      ["Wood Repair & Wood Rot", "When water gets in, rot follows. We replace damaged wood instead of painting over it."],
-      ["UV Intensity", "Strong summer sun fades and breaks down paint. Premium coatings hold their color longer."],
-      ["Wind & Impact Resistance", "Spring storms bring wind, hail, and debris. Well-bonded, durable coatings stand up to it."],
-      ["Moisture & Rainy Season", "Heavy spring rain tests every seam. We seal gaps and schedule around the weather."]
+      [
+        "Seasonal Humidity",
+        "Humidity swings make wood, trim, and drywall expand and contract. We choose flexible products that move with your home."
+      ],
+      [
+        "Extreme Temperature Swings",
+        "From the 100s in summer to the negative teens in winter, freeze-thaw cycles crack caulk and open seams. Proper sealing keeps water out."
+      ],
+      [
+        "Wood Repair & Wood Rot",
+        "When water gets in, rot follows. We replace damaged wood instead of painting over it."
+      ],
+      [
+        "UV Intensity",
+        "Strong summer sun fades and breaks down paint. Premium coatings hold their color longer."
+      ],
+      [
+        "Wind & Impact Resistance",
+        "Spring storms bring wind, hail, and debris. Well-bonded, durable coatings stand up to it."
+      ],
+      [
+        "Moisture & Rainy Season",
+        "Heavy spring rain tests every seam. We seal gaps and schedule around the weather."
+      ]
     ]
   }
 }

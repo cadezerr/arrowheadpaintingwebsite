@@ -51,7 +51,7 @@ def page(slug, name, state, county, zips, photo):
         "faq": [
             [f"Do you serve all of {name}?", f"Yes. We paint homes throughout {name}{' and the surrounding Northland' if slug == 'north-kansas-city' else ''}."],
             [f"How do I get a painting estimate in {name}?", "Call us at (913) 472-8077 or request a free estimate online. We'll call to schedule a time to walk your property, then send you a written, itemized quote."],
-            ["Do you repair wood rot before painting?", "Yes. We replace rotted siding, trim, fascia, and door frames with cedar, LP SmartSide, James Hardie, or PVC before we paint, so your new finish lasts."],
+            ["Do you repair wood rot before painting?", "Yes. We replace rotted siding, trim, fascia, and door frames with cedar, LP SmartSide, James Hardie, AZEK, or PVC before we paint, so your new finish lasts."],
             ["Is your work warrantied?", "Every project comes with a written warranty: up to 7 years on exteriors and 2 years on interiors."],
         ],
     }

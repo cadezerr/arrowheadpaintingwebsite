@@ -3,20 +3,36 @@
     <div class="section-head center reveal">
       <p class="kicker">Our Warranties</p>
       <h2>Work We Stand Behind</h2>
+      <p class="lede">Every project comes with a written warranty. Pick a tab to see the details.</p>
     </div>
-    <div class="warranty">
-      <div class="warranty-col reveal">
-        <h3>Exterior</h3>
+    <div class="wtabs reveal" data-tabs>
+      <div class="wtab-list" role="tablist" aria-label="Warranty type">
+        <button class="wtab" role="tab" id="wt-ext" aria-controls="wp-ext" aria-selected="true">Exterior Warranty</button>
+        <button class="wtab" role="tab" id="wt-int" aria-controls="wp-int" aria-selected="false" tabindex="-1">Interior Warranty</button>
+      </div>
+      <div class="wpanel" role="tabpanel" id="wp-ext" aria-labelledby="wt-ext">
+        <div class="wpanel-hero">
+          <p class="w-eyebrow">Exterior Painting</p>
+          <p class="w-huge">Up To <span>7</span> Years</p>
+          <p class="w-what">Choose the level that fits your home and how long you plan to stay.</p>
+        </div>
         <ul class="warranty-list">
           <li><span class="w-yrs">3 Years</span><span class="w-what"><strong>SuperPaint®</strong>PowerHouse® caulk</span></li>
           <li><span class="w-yrs">5 Years</span><span class="w-what"><strong>Duration®</strong>SherMax® caulk</span></li>
-          <li><span class="w-yrs">7 Years</span><span class="w-what"><strong>Emerald® Rain Refresh</strong>SherMax® caulk</span></li>
+          <li class="w-best"><span class="w-yrs">7 Years</span><span class="w-what"><strong>Emerald® Rain Refresh</strong>SherMax® caulk</span></li>
         </ul>
       </div>
-      <div class="warranty-col warranty-simple reveal">
-        <h3>Interior</h3>
-        <p class="w-big">2 Years</p>
-        <p class="w-what">Every interior project is backed by a 2-year written warranty.</p>
+      <div class="wpanel" role="tabpanel" id="wp-int" aria-labelledby="wt-int" hidden>
+        <div class="wpanel-hero">
+          <p class="w-eyebrow">Interior Painting</p>
+          <p class="w-huge"><span>2</span>-Year Warranty</p>
+          <p class="w-what">Every interior project is covered by a written warranty, no matter which paint you choose.</p>
+        </div>
+        <ul class="ticks w-ticks">
+          <li><strong>Walls &amp; ceilings</strong>, including great rooms and stairwells</li>
+          <li><strong>Trim, doors &amp; cabinets</strong> with a smooth, durable finish</li>
+          <li><strong>Any paint brand</strong>, the same written coverage</li>
+        </ul>
       </div>
     </div>
     <p class="note center mt-2">We supply all major paint brands, including Sherwin-Williams, Benjamin Moore, Behr, Spectrum, PPG, and more.</p>

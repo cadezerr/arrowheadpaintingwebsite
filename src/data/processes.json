@@ -48,8 +48,8 @@
   },
   "exterior": {
     "title": "Our Proven Exterior Painting Process",
-    "photo": "drone-prep-seams",
-    "alt": "Home with every seam and nail hole caulked, ready for paint",
+    "photo": "ext-process-wide",
+    "alt": "Arrowhead crew prepping and painting a two-story Kansas City home",
     "steps": [
       [
         "Free On-Site Estimate & Inspection",
@@ -73,7 +73,7 @@
       ],
       [
         "Wood Rot Repair",
-        "Rotted siding, trim, fascia, and door frames are replaced with cedar, LP SmartSide, James Hardie, or PVC."
+        "Rotted siding, trim, fascia, and door frames are replaced with cedar, LP SmartSide, James Hardie, AZEK, or PVC."
       ],
       [
         "Scrape, Sand & Caulk",
@@ -143,7 +143,7 @@
       ],
       [
         "Carpentry & New Material",
-        "Our carpenters install new boards in cedar, LP SmartSide, James Hardie, or PVC, matched to your home."
+        "Our carpenters install new boards in cedar, LP SmartSide, James Hardie, AZEK, or PVC, chosen around your wants and needs."
       ],
       [
         "Seal & Caulk",
@@ -157,8 +157,8 @@
   },
   "commercial": {
     "title": "Our Commercial Painting Process",
-    "photo": "crew-ladders-during",
-    "alt": "Crew on ladders painting a large exterior",
+    "photo": "commercial-storefront",
+    "alt": "Illustration of a painter on a lift refreshing a commercial storefront",
     "steps": [
       [
         "Site Visit",
