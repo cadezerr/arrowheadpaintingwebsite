@@ -26,6 +26,9 @@ const BUSINESS = {
 };
 
 const read = (p) => fs.readFileSync(path.join(src, p), "utf8");
+// Version stamp so browsers always load the latest CSS/JS after an update
+const crypto = require("crypto");
+const VERSION = crypto.createHash("md5").update(read("assets/styles.css") + read("assets/site.js")).digest("hex").slice(0, 8);
 const images = JSON.parse(read("data/images.json"));
 const reviews = JSON.parse(read("data/reviews.json"));
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -102,6 +105,21 @@ function expand(html) {
     .replace(/\{\{googleUrl\}\}/g, BUSINESS.googleUrl)
     .replace(/\{\{rating\}\}/g, BUSINESS.rating)
     .replace(/\{\{reviewCount\}\}/g, BUSINESS.reviewCount);
+}
+
+// ---------- Title Case for headings, buttons, and labels ----------
+function titleWord(w) {
+  if (/@|^https?:/.test(w)) return w;
+  return w.replace(/^([("'“‘]*)([a-z])/, (_, pre, c) => pre + c.toUpperCase());
+}
+function titleText(html) {
+  // only touch text between tags, never tag markup or entities
+  return html.replace(/(^|>)([^<]+)/g, (_, gt, text) => gt + text.replace(/(^|\s)(\S+)/g, (m, sp, w) => (w.startsWith("&") ? sp + w : sp + titleWord(w))));
+}
+function titleCaseHtml(html) {
+  html = html.replace(/(<(h[1-4]|summary|figcaption class="tc")\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, open, tag, inner, close) => open + titleText(inner) + close);
+  html = html.replace(/(<(a|button|p|span|li|strong)\b[^>]*class="[^"]*\b(btn|kicker|link-arrow|filter|svc-badge|photo-tag|tier-flag|footer-h|g-cap)\b[^"]*"[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, open, tag, cls, inner, close) => open + titleText(inner) + close);
+  return html;
 }
 
 // ---------- Structured data ----------
@@ -182,7 +200,7 @@ function faqHtml(faq) {
 function crumbsHtml(crumbs) {
   const items = [["Home", "/"], ...crumbs];
   return `<nav class="crumbs" aria-label="Breadcrumb"><ol>${items
-    .map(([n, p], i) => (i === items.length - 1 ? `<li aria-current="page">${esc(n)}</li>` : `<li><a href="${p}">${esc(n)}</a></li>`))
+    .map(([n, p], i) => (i === items.length - 1 ? `<li aria-current="page">${titleText(esc(n))}</li>` : `<li><a href="${p}">${titleText(esc(n))}</a></li>`))
     .join("")}</ol></nav>`;
 }
 
@@ -244,7 +262,7 @@ for (const { file, meta, body } of pages) {
     .replace("{{preload}}", meta.preload ? `<link rel="preload" as="image" href="/assets/img/${meta.preload}-800.webp" imagesrcset="${images[meta.preload].sizes.map((w) => `/assets/img/${meta.preload}-${w}.webp ${w}w`).join(", ")}" imagesizes="100vw" fetchpriority="high">` : "");
   head = head.replace(/\{\{current-([\w-]+)\}\}/g, (_, k) => (meta.nav === k ? ' aria-current="page"' : ""));
 
-  const out = expand(head + html + footer);
+  const out = titleCaseHtml(expand(head + html + footer)).replace('/assets/styles.css"', `/assets/styles.css?v=${VERSION}"`).replace('/assets/site.js"', `/assets/site.js?v=${VERSION}"`);
   const left = out.match(/<!--#[\w-]+[^>]*-->|\{\{[\w-]+\}\}/);
   if (left) throw new Error(`${path.relative(src, file)}: unexpanded placeholder ${left[0]}`);
 
