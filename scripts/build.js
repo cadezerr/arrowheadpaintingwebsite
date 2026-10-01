@@ -188,7 +188,7 @@ function titleWord(w) {
 }
 function titleText(html) {
   // only touch text between tags, never tag markup or entities
-  return html.replace(/(^|>)([^<]+)/g, (_, gt, text) => gt + text.replace(/(^|\s)(\S+)/g, (m, sp, w) => (w.startsWith("&") ? sp + w : sp + titleWord(w))));
+  return html.replace(/(^|>)([^<]+)/g, (_, gt, text) => gt + text.replace(/(^|\s)(\S+)/g, (m, sp, w) => (w.startsWith("&") || w.includes("@") ? sp + w : sp + titleWord(w))));
 }
 function titleCaseHtml(html) {
   html = html.replace(/(<(h[1-4]|summary|figcaption class="tc")\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, open, tag, inner, close) => open + titleText(inner) + close);
@@ -217,7 +217,7 @@ const businessLd = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
   ],
-  sameAs: ["https://www.facebook.com/arrowheadpaintingkc/", "https://www.instagram.com/arrowheadpaintingkc/"],
+  sameAs: ["https://www.facebook.com/arrowheadpaintingkc/", "https://www.instagram.com/arrowheadpaintingkc/", "https://www.tiktok.com/@arrowheadpaintingkc", "https://nextdoor.com/pages/arrowhead-painting-kc-overland-park-ks/"],
   knowsAbout: ["Exterior house painting", "Interior painting", "Wood rot repair", "Siding repair", "James Hardie siding", "LP SmartSide", "Cabinet painting", "Commercial painting", "Color consultation"],
 };
 
@@ -308,7 +308,7 @@ blogPosts.sort((a, b) => b.article.date.localeCompare(a.article.date));
 for (const { file, meta, body } of pages) {
   const url = SITE + meta.path;
   let html = body
-    .replace("<!--#faq-->", meta.faq ? faqHtml(meta.faq) : "")
+    .replace("<!--#faq-->", meta.faq ? faqHtml(meta.faq) + '<p class="mt-2"><a class="link-arrow" href="/faqs/">See All FAQs</a></p>' : "")
     .replace("<!--#crumbs-->", meta.crumbs ? crumbsHtml(meta.crumbs) : "")
     .replace("<!--#blog-list-->", () =>
       blogPosts

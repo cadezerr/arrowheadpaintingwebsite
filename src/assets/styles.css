@@ -777,3 +777,14 @@ h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-ct
 .reviews-grid-2 { columns: 2 300px; }
 .post-card-img img { aspect-ratio: 16 / 10; }
 .photo-short .photo:first-child img { aspect-ratio: 1 / 1; object-position: 50% 30%; }
+.faq-jump { margin-bottom: 30px; }
+.faq-group { scroll-margin-top: 120px; margin-bottom: 40px; }
+.faq-group h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); }
+.topbar-social .social { margin: 0; gap: 6px; }
+.topbar-social .social a { width: 26px; height: 26px; border: 0; }
+.topbar-social .social svg { width: 14px; height: 14px; fill: #d4d7d8; }
+.topbar-social .social a:hover svg { fill: #fff; }
+.social-dark .social { margin-top: 8px; }
+.social-dark .social a { border-color: var(--line); background: var(--ink); }
+.social-dark .social a:hover { background: var(--red); }
+@media (max-width: 760px) { .topbar-social { display: none; } }
