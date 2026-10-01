@@ -3,6 +3,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const zlib = require("zlib");
 const { sendEmail } = require("./src/server/email");
 
 const port = process.env.PORT || 3000;
@@ -22,10 +23,23 @@ const types = {
   ".webp": "image/webp",
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".pdf": "application/pdf",
 };
 
 // Old WordPress addresses -> new pages, so existing links and Google results keep working
-const redirects = { "/our-services": "/services/", "/about": "/who-we-are/", "/contact-us": "/contact/" };
+const redirects = {
+  "/our-services": "/services/",
+  "/who-we-are": "/about/",
+  "/contact-us": "/contact/",
+  "/free-estimate": "/contact/",
+  "/guides": "/blog/",
+  "/equipment": "/about/",
+  "/gallery": "/our-work/",
+  "/warranty": "/process-warranty/",
+};
 
 function send(res, status, body, headers = {}) {
   res.writeHead(status, headers);
@@ -35,38 +49,46 @@ function json(res, status, obj) {
   send(res, status, JSON.stringify(obj), { "content-type": types[".json"] });
 }
 
-function serveFile(res, file, status = 200) {
+const compressible = new Set([".html", ".css", ".js", ".json", ".xml", ".txt", ".svg"]);
+
+function serveFile(req, res, file, status = 200) {
   fs.readFile(file, (err, data) => {
-    if (err) return notFound(res);
+    if (err) return notFound(req, res);
     const ext = path.extname(file);
-    send(res, status, data, {
+    const headers = {
       "content-type": types[ext] || "application/octet-stream",
-      "cache-control": ext === ".html" ? "no-cache" : "public, max-age=3600",
-    });
+      "cache-control": ext === ".html" ? "no-cache" : /\.(webp|png|jpg|woff2?|mp4|webm)$/.test(ext) ? "public, max-age=2592000" : "public, max-age=3600",
+      "x-content-type-options": "nosniff",
+      vary: "Accept-Encoding",
+    };
+    if (compressible.has(ext) && /\bgzip\b/.test(req.headers["accept-encoding"] || "")) {
+      headers["content-encoding"] = "gzip";
+      return send(res, status, zlib.gzipSync(data), headers);
+    }
+    send(res, status, data, headers);
   });
 }
-function notFound(res) {
-  fs.readFile(path.join(dist, "404.html"), (err, data) => {
-    send(res, 404, err ? "Not found" : data, { "content-type": types[".html"] });
-  });
+function notFound(req, res) {
+  if (fs.existsSync(path.join(dist, "404.html"))) return serveFile(req, res, path.join(dist, "404.html"), 404);
+  send(res, 404, "Not found", { "content-type": types[".txt"] });
 }
 
 function serveStatic(req, res, pathname) {
   let rel;
-  try { rel = decodeURIComponent(pathname); } catch { return notFound(res); }
+  try { rel = decodeURIComponent(pathname); } catch { return notFound(req, res); }
   const target = path.normalize(path.join(dist, rel));
-  if (!target.startsWith(dist)) return notFound(res);
+  if (!target.startsWith(dist)) return notFound(req, res);
 
   fs.stat(target, (err, st) => {
-    if (!err && st.isFile()) return serveFile(res, target);
+    if (!err && st.isFile()) return serveFile(req, res, target);
     if (!err && st.isDirectory()) {
       if (!pathname.endsWith("/")) return send(res, 301, "", { location: pathname + "/" });
-      return serveFile(res, path.join(target, "index.html"));
+      return serveFile(req, res, path.join(target, "index.html"));
     }
     // /services -> /services/
     fs.stat(path.join(target, "index.html"), (e2, st2) => {
       if (!e2 && st2.isFile()) return send(res, 301, "", { location: pathname + "/" });
-      notFound(res);
+      notFound(req, res);
     });
   });
 }
@@ -110,11 +132,13 @@ async function handleContact(req, res) {
   const lastName = clean(b.lastName, 80);
   const email = clean(b.email, 200);
   const phone = clean(b.phone, 40);
-  const projectType = clean(b.projectType, 60);
-  const city = clean(b.city, 80);
+  const service = clean(b.service, 80);
+  const zip = clean(b.zip, 10);
+  const timeframe = clean(b.timeframe, 60);
+  const page = clean(b.page, 200);
   const message = String(b.message ?? "").trim().slice(0, 5000);
 
-  if (!firstName || !lastName || !email || !phone || !projectType || !message) {
+  if (!firstName || !lastName || !email || !phone || !service || !zip) {
     return json(res, 400, { error: "Please fill in every required field." });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -131,15 +155,17 @@ async function handleContact(req, res) {
     await sendEmail({
       to: recipient,
       replyTo: email,
-      subject: `Quote request: ${projectType} – ${firstName} ${lastName}`,
+      subject: `Estimate request: ${service} – ${firstName} ${lastName} (${zip})`,
       text: [
         `Name: ${firstName} ${lastName}`,
-        `Email: ${email}`,
         `Phone: ${phone}`,
-        `Project: ${projectType}`,
-        `City: ${city || "(not given)"}`,
+        `Email: ${email}`,
+        `Service: ${service}`,
+        `ZIP: ${zip}`,
+        `Timeframe: ${timeframe || "(not given)"}`,
+        `Sent from: ${page || "/"}`,
         "",
-        message,
+        message || "(no details given)",
       ].join("\n"),
     });
     json(res, 200, { success: true });

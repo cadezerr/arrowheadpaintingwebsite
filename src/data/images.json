@@ -1,0 +1,515 @@
+{
+"hero-charcoal-home": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400,
+2000
+]
+},
+"ba-1-before": {
+"w": 2100,
+"h": 1323,
+"sizes": [
+800,
+1400
+]
+},
+"ba-1-after": {
+"w": 2100,
+"h": 1323,
+"sizes": [
+800,
+1400
+]
+},
+"ba-2-before": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-2-after": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-3-before": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-3-after": {
+"w": 4032,
+"h": 2858,
+"sizes": [
+800,
+1200
+]
+},
+"ba-4-before": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-4-after": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-5-before": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-5-after": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-6-before": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-6-after": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ba-7-before": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ba-7-after": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ext-gray-stucco-ranch": {
+"w": 2048,
+"h": 1536,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-stucco-side": {
+"w": 1600,
+"h": 1200,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-stucco-back": {
+"w": 2048,
+"h": 1536,
+"sizes": [
+800,
+1400
+]
+},
+"ext-charcoal-back-deck": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-lake-home": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ext-lake-home-2": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ext-cream-backyard": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ext-two-story-front": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"ext-charcoal-modern": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-greige-back": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ext-green-two-story": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ext-navy-garage-doors": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ext-white-chimney": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"ext-charcoal-two-story": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-mustard-split": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"rot-trim-circled": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"rot-siding-closeup": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"rot-siding-patches": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-siding-replacement": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"rot-siding-replaced": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"rot-deck-boards": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"rot-new-siding-primed": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-siding-tearoff": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"rot-chimney-siding": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-door-trim-repair": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"rot-board-batten": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"crew-powerwash": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"crew-ladder-masking": {
+"w": 1179,
+"h": 2086,
+"sizes": [
+800,
+1179
+]
+},
+"crew-trim-paint": {
+"w": 1179,
+"h": 2086,
+"sizes": [
+800,
+1179
+]
+},
+"crew-stucco-prep": {
+"w": 1179,
+"h": 2088,
+"sizes": [
+800,
+1179
+]
+},
+"crew-brush-siding": {
+"w": 1179,
+"h": 2081,
+"sizes": [
+800,
+1179
+]
+},
+"crew-garage-trim": {
+"w": 1179,
+"h": 2081,
+"sizes": [
+800,
+1179
+]
+},
+"crew-window-trim": {
+"w": 1179,
+"h": 2086,
+"sizes": [
+800,
+1179
+]
+},
+"crew-two-story": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"crew-spray-garage": {
+"w": 1179,
+"h": 2086,
+"sizes": [
+800,
+1179
+]
+},
+"crew-ladders-during": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1200
+]
+},
+"int-great-room-crew": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"int-kitchen-prep": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-kitchen-cabinets": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-blue-cabinets": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-laundry-after": {
+"w": 3030,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"int-bedroom-prep": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"int-hallway-prep": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"deck-stain": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"cade-skyline": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1200
+]
+},
+"cade-union-station": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"cade-headshot": {
+"w": 1080,
+"h": 1616,
+"sizes": [
+600,
+1000
+]
+},
+"brand-yard-sign": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+},
+"brand-gear": {
+"w": 4284,
+"h": 5712,
+"sizes": [
+800,
+1200
+]
+}
+}

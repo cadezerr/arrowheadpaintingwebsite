@@ -1,0 +1,39 @@
+<form class="quote-form" data-quote-form novalidate>
+  <div class="qf-row">
+    <div class="field"><label for="qf-first">First name</label><input id="qf-first" name="firstName" autocomplete="given-name" required maxlength="80"></div>
+    <div class="field"><label for="qf-last">Last name</label><input id="qf-last" name="lastName" autocomplete="family-name" required maxlength="80"></div>
+  </div>
+  <div class="qf-row">
+    <div class="field"><label for="qf-phone">Phone</label><input id="qf-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+    <div class="field"><label for="qf-email">Email</label><input id="qf-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+  </div>
+  <div class="qf-row">
+    <div class="field"><label for="qf-service">What do you need?</label>
+      <select id="qf-service" name="service" required>
+        <option value="">Choose one</option>
+        <option>Exterior painting</option>
+        <option>Wood rot or siding repair</option>
+        <option>Exterior painting + wood rot repair</option>
+        <option>Interior painting</option>
+        <option>Commercial painting</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="field"><label for="qf-zip">ZIP code</label><input id="qf-zip" name="zip" inputmode="numeric" autocomplete="postal-code" required maxlength="10" pattern="[0-9]{5}(-[0-9]{4})?"></div>
+  </div>
+  <div class="field"><label for="qf-time">When would you like it done? <span class="opt">(optional)</span></label>
+    <select id="qf-time" name="timeframe">
+      <option value="">No preference</option>
+      <option>As soon as possible</option>
+      <option>Within 1–2 months</option>
+      <option>This season</option>
+      <option>Next spring</option>
+      <option>Just planning ahead</option>
+    </select>
+  </div>
+  <div class="field"><label for="qf-msg">Tell us about your project <span class="opt">(optional)</span></label><textarea id="qf-msg" name="message" maxlength="5000" placeholder="Size of home, surfaces, any peeling or rot you've noticed…"></textarea></div>
+  <div class="hp" aria-hidden="true"><label for="qf-web">Leave blank</label><input id="qf-web" name="website" tabindex="-1" autocomplete="off"></div>
+  <button class="btn btn-red btn-lg btn-block" type="submit">Request my free estimate</button>
+  <p class="form-note">We reply within one business day. Prefer to talk? Call <a href="tel:{{tel}}">{{phone}}</a>.</p>
+  <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+</form>
