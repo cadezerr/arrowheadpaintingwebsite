@@ -584,3 +584,32 @@ p { margin: 0 0 1.1em; }
 .big-quote::before { content: "“"; color: var(--red); }
 .big-quote::after { content: "”"; color: var(--red); }
 .bg-ink .big-quote { color: #fff; }
+
+/* ---------- Title Case on headings, buttons, and labels ---------- */
+h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-cta a, .header-phone,
+.link-arrow, .filter, .svc-badge, .photo-tag, .tier-flag, .ba-tag, .footer-h, .site-footer ul a,
+.crumbs li, .faq summary, .mobile-bar a, .rail-btn, .trust span, .w-yrs, .warranty-list strong,
+.contact-list strong, .pill-links a, .area-card h3, .g-cap, .team figcaption, .topbar-in p {
+  text-transform: capitalize;
+}
+
+/* Stats strip: one color throughout */
+.trust strong, .trust strong em { color: var(--ink); }
+.trust strong.trust-text { font-size: 1.9rem; padding-top: .35rem; }
+
+/* Warranty (exterior + interior side by side) */
+.warranty { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 980px; margin: 0 auto; }
+.warranty-col { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px 30px; }
+.warranty-col h3 { font-size: 1.8rem; margin-bottom: 10px; }
+.warranty-list { list-style: none; margin: 0; padding: 0; }
+.warranty-list li { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
+.w-yrs { font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--ink); line-height: 1; }
+.w-what { color: var(--muted); font-size: .95rem; line-height: 1.35; }
+.w-what strong { display: block; color: var(--ink); font-size: 1.02rem; }
+@media (max-width: 760px) { .warranty { grid-template-columns: 1fr; } .warranty-list li { grid-template-columns: 92px 1fr; } }
+
+/* 10-step process */
+.steps-10 { grid-template-columns: repeat(5, 1fr); }
+.steps-10 h3 { font-size: 1.3rem; }
+@media (max-width: 1060px) { .steps-10 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .steps-10 { grid-template-columns: 1fr; } }

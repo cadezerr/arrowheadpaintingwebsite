@@ -8,7 +8,7 @@ AREAS = [
  dict(slug="overland-park", name="Overland Park", state="KS", county="Johnson County",
   zips=["66204","66207","66210","66212","66213","66214","66221","66223"],
   photo="ext-charcoal-two-story", ba="1",
-  intro="Overland Park is where we paint more homes than anywhere else. From the 1960s and '70s ranches and split-levels north of I-435 to the newer two-stories in south OP, we know the siding, trim details, and common problem spots on just about every style of home here.",
+  intro="We paint homes all over Overland Park. From the 1960s and '70s ranches and split-levels north of I-435 to the newer two-stories in south OP, we know the siding, trim details, and common problem spots on just about every style of home here.",
   local="Many north Overland Park homes still have original wood lap siding and hardboard trim that has been painted several times. When the paint fails, that wood soaks up water and rots at the bottom edges. On newer homes south of 135th Street, we see more fiber cement and LP SmartSide, where good caulk and the right coating keep the finish looking sharp for years.",
   faq=[["Do you paint homes in both north and south Overland Park?","Yes. We work across all of Overland Park, including ZIP codes 66204, 66207, 66210, 66212, 66213, 66214, 66221, and 66223."],
        ["Do I need HOA approval to change my exterior color?","Many Overland Park neighborhoods have HOAs with color guidelines. We'll help you pick colors and can provide paint names, codes, and samples to submit for approval."]]),
@@ -44,7 +44,7 @@ AREAS = [
   zips=["66202","66205","66208"],
   photo="ext-navy-garage-doors", ba="6",
   intro="The classic post-war homes in Mission, Roeland Park, and Prairie Village have real character: wood siding, brick, detailed trim, and decades of paint layers. Painting them well takes patience and the right prep.",
-  local="Older homes in northeast Johnson County often have several layers of paint, some possibly containing lead. We scrape and prepare carefully, repair or replace rotted wood siding and trim, and use primers that lock everything down before the finish coats.",
+  local="Older homes in northeast Johnson County often have several layers of paint, some possibly containing lead. We scrape and prepare carefully, repair or replace rotted wood siding and trim, and prime properly so the new paint holds.",
   faq=[["Do you paint older homes in Prairie Village and Mission?","Yes. Many of our favorite projects are mid-century homes in 66202, 66205, and 66208."],
        ["Can you replace original wood siding that's rotted?","Yes. We replace damaged boards with matching wood or a more durable material like LP SmartSide or James Hardie, then prime and paint so it blends in."]]),
  dict(slug="lees-summit", name="Lee's Summit", state="MO", county="Jackson County",
@@ -101,10 +101,10 @@ def page(a):
   <div class="wrap">
     <div class="page-hero-in hero-in">
       <!--#crumbs-->
-      <h1>House painters in {disp}, {a["state"]}</h1>
-      <p class="lede">Exterior painting, wood rot repair, and interior painting for {disp} homeowners, backed by up to a 7-year warranty and {{{{rating}}}}-star reviews from your neighbors.</p>
+      <h1>House Painters In {disp}, {a["state"]}</h1>
+      <p class="lede">Exterior painting, wood rot repair, and interior painting for {disp} homeowners, backed by up to a 7-year warranty and a {{{{rating}}}}-star rating on Google.</p>
       <div class="hero-actions">
-        <a class="btn btn-red btn-lg" href="/contact/">Get a free estimate</a>
+        <a class="btn btn-red btn-lg" href="/contact/">Get A Free Estimate</a>
         <a class="btn btn-ghost-light btn-lg" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a>
       </div>
     </div>
@@ -115,21 +115,21 @@ def page(a):
 <section class="section">
   <div class="wrap split">
     <div class="reveal">
-      <p class="kicker">Painting in {a.get("short", disp)}</p>
-      <h2>Local painters who know {disp} homes</h2>
+      <p class="kicker">Painting In {a.get("short", disp)}</p>
+      <h2>Local Painters Who Know {disp} Homes</h2>
       <p>{a["intro"]}</p>
       <p>{a["local"]}</p>
-      <h3 class="mt-2">ZIP codes we serve</h3>
+      <h3 class="mt-2">ZIP Codes We Serve</h3>
       <ul class="zips">{zips}</ul>
       <p class="muted">Located in {a["county"]}.{also}</p>
     </div>
-    <div class="reveal"><!--#ba {a["ba"]}|A recent Kansas City area exterior repaint--></div>
+    <div class="reveal"><div class="photo photo-tall"><!--#img {a["photo"]}|A recent Arrowhead Painting exterior project in the Kansas City area|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 
 <section class="section bg-mist">
   <div class="wrap">
-    <div class="section-head reveal"><p class="kicker">Services in {a.get("short", disp)}</p><h2>What we do for {disp} homeowners</h2></div>
+    <div class="section-head reveal"><p class="kicker">Services</p><h2>What We Do For {disp} Homeowners</h2></div>
     <div class="cards cards-4">
       <a class="card area-card reveal" href="/exterior-painting/"><h3>Exterior painting</h3><p>Full repaints with power washing, caulk, primer, and Sherwin-Williams paint.</p></a>
       <a class="card area-card reveal" href="/wood-rot-repair/"><h3>Wood rot repair</h3><p>Siding, trim, fascia, and door frames replaced with cedar, LP, Hardie, or PVC.</p></a>
@@ -139,23 +139,16 @@ def page(a):
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="head-row reveal"><div class="section-head"><p class="kicker">Reviews</p><h2>What Kansas City homeowners say</h2></div><a class="btn btn-outline" href="/reviews/">All reviews</a></div>
-    <div class="reviews-grid"><!--#reviews featured|3--></div>
-  </div>
-</section>
-
 <section class="section bg-mist">
   <div class="wrap narrow">
-    <div class="section-head center reveal"><p class="kicker">FAQ</p><h2>Painting in {disp}</h2></div>
+    <div class="section-head center reveal"><p class="kicker">FAQ</p><h2>Painting In {disp}</h2></div>
     <!--#faq-->
   </div>
 </section>
 
 <section class="section-tight">
   <div class="wrap">
-    <h2 class="reveal" style="font-size:clamp(1.8rem,3vw,2.4rem)">Nearby areas we serve</h2>
+    <h2 class="reveal" style="font-size:clamp(1.8rem,3vw,2.4rem)">Nearby Areas We Serve</h2>
     <ul class="pill-links">{others}</ul>
   </div>
 </section>
@@ -200,7 +193,7 @@ hub = f'''<!--meta {json.dumps(hub_meta, ensure_ascii=False)} -->
       <h2>Not sure if we cover your street?</h2>
       <p class="lede">If your ZIP code is on this list, we'd love to take a look at your project. If it isn't, give us a call anyway.</p>
       <ul class="zips">{"".join(f"<li>{z}</li>" for z in allzips)}</ul>
-      <div class="actions"><a class="btn btn-red" href="/contact/">Get a free estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
+      <div class="actions"><a class="btn btn-red" href="/contact/">Get A Free Estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
     </div>
     <div class="reveal"><div class="photo photo-tall"><!--#img brand-yard-sign|Arrowhead Painting yard sign at a Kansas City project|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>

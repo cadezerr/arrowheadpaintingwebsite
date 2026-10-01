@@ -1,30 +1,98 @@
 [
-  {"id": "sypko", "name": "Mark Sypko", "when": "2 months ago", "tags": ["exterior", "woodrot", "featured"], "text": "Cade and his project manager Bobby showed up for the quote. They walked the property with me, pointed out some problems with trim rotting. In talks with them it felt like sealing was more important than slapping paint on the house and moving on. I did appreciate that… They transformed our outdated paint to make us feel like we got a brand new home. If you need a reliable company this is the best!"},
-  {"id": "spinski", "name": "Vanessa Spinski", "when": "2 months ago", "tags": ["exterior", "prep", "featured"], "text": "As someone who works in the apartment industry and has overseen the painting of numerous apartment building exteriors over the years, I’ve worked with a lot of painting contractors. I can honestly say Arrowhead Painting’s prep work and attention to detail exceeded anything I’ve seen before. They spent several days just preparing our home before any painting began, making sure every surface was properly cleaned, caulked, masked, and ready for paint."},
-  {"id": "glenn", "name": "Debbie Glenn", "when": "2 months ago", "tags": ["exterior", "woodrot", "featured"], "text": "I got 7 bids for my project. While AP was not the lowest (or the highest), it was the most detailed, and from my point of view, the most honest. When my project turned out to entail damage from bats (! - not kidding), they could have insisted I call another provider or increased their bid. They did neither and not only cleaned up and repaired the damage, but took extra measures to discourage their return."},
-  {"id": "amick", "name": "Lon Amick", "when": "a year ago", "tags": ["exterior", "warranty", "featured"], "text": "I care about the small things — the alignment of trim, the lasting integrity of prep work, the texture of the paint catching the light just right… Cade and his team met that challenge not only with skill but with remarkable patience, kindness, and professionalism. Their work comes with a warranty, which gives me peace of mind. It tells me they’re willing to stand behind their work long after the ladders are packed up."},
-  {"id": "wilcox", "name": "Chris Wilcox", "when": "a year ago", "tags": ["exterior", "woodrot", "featured"], "text": "I had extensive wood rot unseen siding damage and it was all repaired or replaced expertly. I expected to pay a little more for the extra work, but was only charged what I was quoted. I highly recommend this company. Their professionalism, communication, attention to detail and work ethic is something most contractors are lacking."},
-  {"id": "chapman-j", "name": "Jenna Chapman", "when": "a year ago", "tags": ["exterior", "woodrot", "color"], "text": "He was on-time for our estimate and sent us a digital quote before leaving our house… I was also very indecisive about which paint color to choose. Cade gave us great advice in helping us narrow down our options and he was incredibly patient with my indecisiveness. His team did an awesome job of repairing our wood rot and painting the exterior… and finished their work within the estimated time frame of 4 days."},
-  {"id": "rouse", "name": "Karen Rouse", "when": "6 months ago", "tags": ["interior", "communication"], "text": "Cade is responsive to concerns and scheduling, explains the quote very well, and the follow through is fantastic. He and his team also provided daily summaries of the work completed. They took great care of my house during the process too! The house looks so much better and I wouldn’t hesitate to call them again."},
-  {"id": "braden", "name": "Brian Braden", "when": "4 months ago", "tags": ["exterior", "woodrot"], "text": "Arrowhead did a full exterior paint job for us and the house turned out great. During the project, they also repaired wood rot and framed out our windows after they removed the shutters. The crew was professional, did high-quality work, and was very attentive to my requests throughout the process."},
-  {"id": "chapman-k", "name": "Kristy Chapman", "when": "4 months ago", "tags": ["exterior", "woodrot"], "text": "Our home had a lot of wood rot and exterior issues that we wanted resolved. Cade, Marco, and Manuel took care of anything, on the exterior, we requested. The attention paid to make sure the result was perfect was second to none. If you are looking for home exterior painting/repair, the value you get with Arrowhead is the best."},
-  {"id": "goyer", "name": "Ryan Goyer", "when": "a year ago", "tags": ["exterior", "woodrot"], "text": "Excellent workmanship, quality rot repair made and attention to details. I have had many houses painted over the years and met many painting crews. Arrowhead painting in Overland Park, KS is one of the best. Neighbors have commented on how great the house looks."},
-  {"id": "burnett", "name": "Steve Burnett", "when": "4 months ago", "tags": ["exterior", "communication"], "text": "Our exterior was in desperate need of some attention and Arrowhead delivered. We were well informed of each step of the process and the project was completed swiftly and they left everything so clean it was like no one was ever there!"},
-  {"id": "halkett", "name": "Blair Halkett", "when": "4 months ago", "tags": ["interior"], "text": "We just had Arrowhead Painting complete our new home, and we were really impressed with both the quality of the work and the respect they showed our home throughout the process. Cade was a pleasure to work with, and the whole experience felt professional from start to finish."},
-  {"id": "cavan", "name": "Al Cavan", "when": "5 months ago", "tags": ["exterior", "color"], "text": "Cade did a great job explaining the process, what they were going to do, and the cost upfront. Very knowledgeable when it comes to paint types. Franklin and his crew are amazing and helpful as well with testing and making sure you have time to choose paint colors."},
-  {"id": "lueckenotte", "name": "Rebecca Lueckenotte", "when": "a month ago", "tags": ["exterior", "color"], "text": "The walkthrough with Cade left me feeling confident about the process and then getting a custom color consult helped us choose the right colors. The project manager, Bobby, and painting team was professional and did an excellent job. I cannot recommend Arrowhead painting enough."},
-  {"id": "kincaid", "name": "Janet Kincaid", "when": "a week ago", "tags": ["exterior", "woodrot", "communication"], "text": "Absolutely A+++++. Great communicators through the whole project. Outside painting on our home with wood rot repair. Left the site clean and neat every evening. Communication with project manager and onsite team was top notch."},
-  {"id": "walters", "name": "Ken Walters", "when": "a day ago", "tags": ["exterior", "prep"], "text": "Arrowhead painting should be your first choice in house painting… the crews run by Bobby and Kevin were phenomenal, the caulking and prep work above none and the finished result was complete coverage and really no call backs."},
-  {"id": "florkowski", "name": "Tammy Florkowski", "when": "a month ago", "tags": ["exterior", "color", "communication"], "text": "Very communicative and kept us informed of possible weather delays and when and where everything was happening. Great pricing and wonderful work! The color designer was also so helpful to suggest colors. Couldn’t be happier!"},
-  {"id": "turner", "name": "Thomas Turner", "when": "11 months ago", "tags": ["interior"], "text": "Your team does so much more and will go above and beyond a typical painting company; the attitude was always “yes,” and your work was executed with cleanliness, efficiency, and thoughtfulness—even with kids and dogs occasionally running through the work area."},
-  {"id": "gaede", "name": "Kayla Gaede", "when": "a year ago", "tags": ["interior"], "text": "My laundry room, kitchen, and bathroom were literally transformed by this company! They were communicative, timely, and focused on quality. We have a few more projects that we are wanting done in the future and they’ll be the first company we call!"},
-  {"id": "hull", "name": "Jennifer Hull", "when": "11 months ago", "tags": ["exterior"], "text": "Communication about the entire process was excellent with Cade, the owner. From start to finish it was a seamless process, and I can’t say enough great things about the main painter, Franklin."},
-  {"id": "bellin", "name": "Zach Bellin", "when": "a year ago", "tags": ["exterior", "color"], "text": "Cade was extremely knowledgeable with his recommendations and very patient with all of our questions. His crew worked quickly but with great care, and treated our home as though it was theirs. We will absolutely be using them again in the future."},
-  {"id": "buckner", "name": "Ed Buckner", "when": "11 months ago", "tags": ["exterior", "woodrot"], "text": "Employees were very professional and polite. They did excellent work. They replaced a lot of wood rot and painted everything well. Everything happened as scheduled. I recommend Arrowhead Painting to anyone."},
-  {"id": "fritz", "name": "Rebecca Fritz", "when": "a month ago", "tags": ["exterior", "woodrot"], "text": "Bobby and Cade were both amazing and quick to respond to everything. Their crew did an amazing job painting and fixing areas with wood rot."},
-  {"id": "marquette", "name": "Monique Marquette", "when": "a month ago", "tags": ["exterior", "woodrot"], "text": "Incredibly professional, and my house looks amazing! They were honest, showed me the wood rot that needed repair, and were so thorough in the painting process!"},
-  {"id": "voiles", "name": "China A. Voiles", "when": "a year ago", "tags": ["exterior", "woodrot"], "text": "They replaced a part of siding and painted the entire exterior. They were fast, clean and professional. Our house looks so much better. We will definitely use them again."},
-  {"id": "ross", "name": "Tara Ross", "when": "3 months ago", "tags": ["exterior", "communication"], "text": "Bobby was professional, punctual, and delivered high-quality work from start to finish. Communication was clear throughout the project, and he paid close attention to detail. The job was completed on time, and the finished product exceeded expectations."},
-  {"id": "rankine", "name": "Garland Rankine", "when": "a year ago", "tags": ["exterior"], "text": "The quality of their work is outstanding, with great attention to detail—even down to the small trim around our old basement windows. The fresh paint makes the whole house really pop."},
-  {"id": "pann", "name": "Trisha Pann", "when": "4 months ago", "tags": ["exterior", "communication"], "text": "Easy to communicate with, didn’t feel pressured into anything and they consistently made sure we were happy with everything. We’ve gotten so many compliments! We will definitely use them again."}
+ {
+  "id": "sypko",
+  "name": "Mark Sypko",
+  "when": "2 months ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "Cade and his project manager Bobby showed up for the quote. They walked the property with me, pointed out some problems with trim rotting. In talks with them it felt like sealing was more important than slapping paint on the house and moving on. I did appreciate that… They transformed our outdated paint to make us feel like we got a brand new home. If you need a reliable company this is the best!"
+ },
+ {
+  "id": "spinski",
+  "name": "Vanessa Spinski",
+  "when": "2 months ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "As someone who works in the apartment industry and has overseen the painting of numerous apartment building exteriors over the years, I’ve worked with a lot of painting contractors. I can honestly say Arrowhead Painting’s prep work and attention to detail exceeded anything I’ve seen before. They spent several days just preparing our home before any painting began, making sure every surface was properly cleaned, caulked, masked, and ready for paint."
+ },
+ {
+  "id": "glenn",
+  "name": "Debbie Glenn",
+  "when": "2 months ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "I got 7 bids for my project. While AP was not the lowest (or the highest), it was the most detailed, and from my point of view, the most honest. When my project turned out to entail damage from bats (! - not kidding), they could have insisted I call another provider or increased their bid. They did neither and not only cleaned up and repaired the damage, but took extra measures to discourage their return."
+ },
+ {
+  "id": "amick",
+  "name": "Lon Amick",
+  "when": "a year ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "I care about the small things — the alignment of trim, the lasting integrity of prep work, the texture of the paint catching the light just right… Cade and his team met that challenge not only with skill but with remarkable patience, kindness, and professionalism. Their work comes with a warranty, which gives me peace of mind. It tells me they’re willing to stand behind their work long after the ladders are packed up."
+ },
+ {
+  "id": "wilcox",
+  "name": "Chris Wilcox",
+  "when": "a year ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "I had extensive wood rot unseen siding damage and it was all repaired or replaced expertly. I expected to pay a little more for the extra work, but was only charged what I was quoted. I highly recommend this company. Their professionalism, communication, attention to detail and work ethic is something most contractors are lacking."
+ },
+ {
+  "id": "chapman-j",
+  "name": "Jenna Chapman",
+  "when": "a year ago",
+  "tags": [
+   "all",
+   "featured"
+  ],
+  "text": "He was on-time for our estimate and sent us a digital quote before leaving our house… I was also very indecisive about which paint color to choose. Cade gave us great advice in helping us narrow down our options and he was incredibly patient with my indecisiveness. His team did an awesome job of repairing our wood rot and painting the exterior… and finished their work within the estimated time frame of 4 days."
+ },
+ {
+  "id": "rouse",
+  "name": "Karen Rouse",
+  "when": "6 months ago",
+  "tags": [
+   "all"
+  ],
+  "text": "Cade is responsive to concerns and scheduling, explains the quote very well, and the follow through is fantastic. He and his team also provided daily summaries of the work completed. They took great care of my house during the process too! The house looks so much better and I wouldn’t hesitate to call them again."
+ },
+ {
+  "id": "lueckenotte",
+  "name": "Rebecca Lueckenotte",
+  "when": "a month ago",
+  "tags": [
+   "all"
+  ],
+  "text": "The walkthrough with Cade left me feeling confident about the process and then getting a custom color consult helped us choose the right colors. The project manager, Bobby, and painting team was professional and did an excellent job. I cannot recommend Arrowhead painting enough."
+ },
+ {
+  "id": "kincaid",
+  "name": "Janet Kincaid",
+  "when": "a week ago",
+  "tags": [
+   "all"
+  ],
+  "text": "Absolutely A+++++. Great communicators through the whole project. Outside painting on our home with wood rot repair. Left the site clean and neat every evening. Communication with project manager and onsite team was top notch."
+ },
+ {
+  "id": "braden",
+  "name": "Brian Braden",
+  "when": "4 months ago",
+  "tags": [
+   "all"
+  ],
+  "text": "Arrowhead did a full exterior paint job for us and the house turned out great. During the project, they also repaired wood rot and framed out our windows after they removed the shutters. The crew was professional, did high-quality work, and was very attentive to my requests throughout the process."
+ }
 ]

@@ -42,7 +42,8 @@ function img(name, alt, sizes = "100vw", cls = "", eager = false) {
   const largest = m.sizes[m.sizes.length - 1];
   const srcset = m.sizes.map((w) => `/assets/img/${name}-${w}.webp ${w}w`).join(", ");
   const h = Math.round((m.h * largest) / m.w);
-  return `<img src="/assets/img/${name}-${m.sizes[0]}.webp" srcset="${srcset}" sizes="${sizes}" width="${largest}" height="${h}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ""}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
+  const style = m.pos ? ` style="object-position:${m.pos}"` : "";
+  return `<img src="/assets/img/${name}-${m.sizes[0]}.webp" srcset="${srcset}" sizes="${sizes}" width="${largest}" height="${h}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ""}${style}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
 }
 function imgUrl(name) {
   const m = images[name];
