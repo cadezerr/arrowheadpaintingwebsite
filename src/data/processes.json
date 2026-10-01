@@ -1,8 +1,8 @@
 {
   "main": {
     "title": "Your 10-Step Path To A Beautiful Home",
-    "photo": "crew-two-story",
-    "alt": "Arrowhead Painting crew working on a two-story Kansas City home",
+    "photo": "crew-ladders-front",
+    "alt": "Arrowhead painters working on the second-story gables of a Kansas City home",
     "steps": [
       [
         "You Reach Out",
@@ -48,8 +48,8 @@
   },
   "exterior": {
     "title": "Our Proven Exterior Painting Process",
-    "photo": "ext-process-wide",
-    "alt": "Arrowhead crew prepping and painting a two-story Kansas City home",
+    "photo": "crew-three-story",
+    "alt": "Arrowhead crew on ladders painting a three-story home",
     "steps": [
       [
         "Free On-Site Estimate & Inspection",
@@ -91,8 +91,8 @@
   },
   "interior": {
     "title": "Our Proven Interior Painting Process",
-    "photo": "int-great-room-crew",
-    "alt": "Painters rolling walls in a two-story great room with floors protected",
+    "photo": "int-crew-dining",
+    "alt": "Arrowhead crew cutting in a dining room with floors protected",
     "steps": [
       [
         "Free In-Home Estimate",
@@ -126,8 +126,8 @@
   },
   "woodrot": {
     "title": "Our Proven Wood Rot Repair & Carpentry Process",
-    "photo": "rot-new-siding-primed",
-    "alt": "New siding installed on a two-story home after wood rot repair",
+    "photo": "rot-new-siding-panels",
+    "alt": "New siding panels installed across two stories during a repair",
     "steps": [
       [
         "Inspect",
@@ -157,8 +157,8 @@
   },
   "commercial": {
     "title": "Our Commercial Painting Process",
-    "photo": "commercial-storefront",
-    "alt": "Illustration of a painter on a lift refreshing a commercial storefront",
+    "photo": "com-crew-sanctuary",
+    "alt": "Arrowhead crew painting a church sanctuary",
     "steps": [
       [
         "Site Visit",

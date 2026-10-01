@@ -977,3 +977,4 @@ h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-ct
 
 .site-footer a[href^="mailto:"] { text-transform: none; }
 .tl-land .photo img { aspect-ratio: 4 / 3; object-position: center; }
+@media (min-width: 761px) { .gallery.gallery-3 { grid-template-columns: repeat(3, 1fr); } }
