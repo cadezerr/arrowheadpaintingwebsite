@@ -543,5 +543,118 @@
 1200
 ],
 "pos": "50% 50%"
+},
+"drone-white-front": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400,
+1920
+]
+},
+"drone-white-side": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"drone-white-back": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"drone-white-garage": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"drone-prep-seams": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"drone-prep-wide": {
+"w": 1920,
+"h": 1080,
+"sizes": [
+800,
+1400
+]
+},
+"cade-skyline-crop": {
+"w": 3024,
+"h": 2823,
+"sizes": [
+800,
+1200
+]
+},
+"crew-arrowhead-shirt": {
+"w": 1179,
+"h": 1249,
+"sizes": [
+800,
+1179
+]
+},
+"crew-touchup": {
+"w": 1179,
+"h": 1251,
+"sizes": [
+800,
+1179
+]
+},
+"cade-headshot-far": {
+"w": 1080,
+"h": 1131,
+"sizes": [
+600,
+1000
+]
+},
+"blog-best-time": {
+"w": 1844,
+"h": 1383,
+"sizes": [
+800,
+1400
+]
+},
+"blog-repaint-signs": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"blog-sw-wide": {
+"w": 2457,
+"h": 1536,
+"sizes": [
+800,
+1400
+]
+},
+"blog-cost-wide": {
+"w": 3337,
+"h": 2086,
+"sizes": [
+800,
+1400
+]
 }
 }

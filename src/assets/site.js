@@ -165,6 +165,27 @@
     if (fe) fe.hidden = true;
   }
 
+  // ---- Count-up numbers in the stats bar ----
+  var counters = document.querySelectorAll("[data-count]");
+  if (!reduce && "IntersectionObserver" in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        cio.unobserve(en.target);
+        var el = en.target, end = parseFloat(el.getAttribute("data-count")), dec = parseInt(el.getAttribute("data-decimals") || "0", 10), t0 = null;
+        function tick(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / 1400, 1), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = (end * e).toFixed(dec);
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        el.textContent = (0).toFixed(dec);
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
   // ---- Footer year ----
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 

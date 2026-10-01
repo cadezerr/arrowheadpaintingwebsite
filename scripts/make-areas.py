@@ -19,7 +19,8 @@ CITIES = [
     ("mission", "Mission", "KS", "Johnson County", ["66202"], "ext-navy-garage-doors"),
     ("roeland-park", "Roeland Park", "KS", "Johnson County", ["66205"], "ext-two-story-front"),
     ("prairie-village", "Prairie Village", "KS", "Johnson County", ["66208"], "ext-green-two-story"),
-    ("kansas-city", "Kansas City", "MO", "Jackson, Clay, and Platte counties", ["64112", "64113", "64114", "64118", "64119", "64145", "64151", "64153", "64154", "64155", "64156", "64157", "64158", "64163", "64164"], "hero-charcoal-home"),
+    ("kansas-city", "Kansas City", "MO", "Jackson County", ["64112", "64113", "64114", "64145"], "hero-charcoal-home"),
+    ("north-kansas-city", "North Kansas City", "MO", "the Northland", ["64118", "64119", "64151", "64153", "64154", "64155", "64156", "64157", "64158", "64163", "64164"], "drone-white-side"),
     ("parkville", "Parkville", "MO", "Platte County", ["64152"], "ext-cream-backyard"),
     ("lees-summit", "Lee's Summit", "MO", "Jackson County", ["64063", "64064", "64065", "64081", "64082", "64086"], "ext-two-story-front"),
     ("greenwood", "Greenwood", "MO", "Jackson County", ["64034"], "ext-gray-stucco-side"),
@@ -28,6 +29,10 @@ CITIES = [
     ("belton", "Belton", "MO", "Cass County", ["64012"], "ext-charcoal-back-deck"),
     ("raymore", "Raymore", "MO", "Cass County", ["64083"], "ext-lake-home-2"),
 ]
+
+def label(n, st):
+    return "North Kansas City &amp; Northland, MO" if n == "North Kansas City" else f"{n}, {st}"
+
 
 PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg>'
 
@@ -44,14 +49,14 @@ def page(slug, name, state, county, zips, photo):
         "crumbs": [["Locations", "/service-areas/"], [name, f"/service-areas/{slug}/"]],
         "priority": "0.7",
         "faq": [
-            [f"Do you serve all of {name}?", f"Yes. We paint homes throughout {name}, including ZIP code{'s' if len(zips) > 1 else ''} {', '.join(zips)}."],
+            [f"Do you serve all of {name}?", f"Yes. We paint homes throughout {name}{' and the surrounding Northland' if slug == 'north-kansas-city' else ''}."],
             [f"How do I get a painting estimate in {name}?", "Call us at (913) 472-8077 or request a free estimate online. We'll call to schedule a time to walk your property, then send you a written, itemized quote."],
             ["Do you repair wood rot before painting?", "Yes. We replace rotted siding, trim, fascia, and door frames with cedar, LP SmartSide, James Hardie, or PVC before we paint, so your new finish lasts."],
             ["Is your work warrantied?", "Every project comes with a written warranty: up to 7 years on exteriors and 2 years on interiors."],
         ],
     }
     zl = "".join(f"<li>{z}</li>" for z in zips)
-    nearby = "".join(f'<li><a href="/service-areas/{s}/">{n}, {st}</a></li>' for s, n, st, *_ in CITIES if s != slug)
+    nearby = "".join(f'<li><a href="/service-areas/{s}/">{label(n, st)}</a></li>' for s, n, st, *_ in CITIES if s != slug)
     return f'''<!--meta {json.dumps(meta, ensure_ascii=False)} -->
 
 <section class="page-hero">
@@ -89,9 +94,7 @@ def page(slug, name, state, county, zips, photo):
       <p class="kicker">Painting In {name}</p>
       <h2>Craftsmanship Built To Last For {name} Homes</h2>
       <!--#include intro-->
-      <h3 class="mt-2">{name} ZIP Codes We Serve</h3>
-      <ul class="zips">{zl}</ul>
-      <p class="muted">Serving {name} and all of {county}.</p>
+      <p class="muted">Proudly serving homeowners throughout {name}{" and the Northland" if slug == "north-kansas-city" else ""}.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a></div>
     </div>
     <div class="reveal"><div class="photo photo-tall"><!--#img {photo}|Recent Arrowhead Painting exterior project near {name}|(min-width: 900px) 45vw, 100vw--></div></div>
@@ -129,7 +132,7 @@ for c in CITIES:
     open(os.path.join(OUT, c[0] + ".html"), "w").write(page(*c))
 
 # Locations mega menu (header)
-items = "\n".join(f'            <li><a href="/service-areas/{s}/">{PIN}<span>{n}, {st}</span></a></li>' for s, n, st, *_ in CITIES)
+items = "\n".join(f'            <li><a href="/service-areas/{s}/">{PIN}<span>{label(n, st)}</span></a></li>' for s, n, st, *_ in CITIES)
 open(os.path.join(ROOT, "partials", "locations-menu.html"), "w").write(f'''<div class="sub mega">
           <ul class="mega-grid">
 {items}
@@ -139,7 +142,7 @@ open(os.path.join(ROOT, "partials", "locations-menu.html"), "w").write(f'''<div 
 ''')
 
 # Hub page
-cards = "\n".join(f'      <a class="area-card reveal" href="/service-areas/{s}/"><h3>{n}, {st}</h3><p>{", ".join(z)}</p></a>' for s, n, st, _, z, _ in CITIES)
+cards = "\n".join(f'      <a class="area-card reveal" href="/service-areas/{s}/"><h3>{label(n, st)}</h3><p>Painting contractor in {n}</p></a>' for s, n, st, _, z, _ in CITIES)
 allzips = sorted({z for c in CITIES for z in c[4]})
 hub_meta = {"title": "Locations | Kansas City House Painters | Arrowhead Painting KC",
             "description": "Arrowhead Painting KC serves Overland Park, Leawood, Olathe, Lenexa, Shawnee, Prairie Village, Lee's Summit, Blue Springs, Kansas City, and more.",
@@ -169,13 +172,12 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
 <section class="section bg-mist">
   <div class="wrap split">
     <div class="reveal">
-      <p class="kicker">Every ZIP Code We Serve</p>
-      <h2>Not Sure If We Cover Your Street?</h2>
-      <p class="lede">If your ZIP code is on this list, we'd love to take a look at your project. If it isn't, give us a call anyway.</p>
-      <ul class="zips">{"".join(f"<li>{z}</li>" for z in allzips)}</ul>
+      <p class="kicker">Don't See Your City?</p>
+      <h2>Give Us A Call</h2>
+      <p class="lede">We serve homeowners all across the Kansas City metro. If your city isn't listed, reach out and we'll let you know if we can help.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
     </div>
-    <div class="reveal"><div class="photo photo-tall"><!--#img brand-yard-sign|Arrowhead Painting yard sign at a Kansas City project|(min-width: 900px) 45vw, 100vw--></div></div>
+    <div class="reveal"><div class="photo photo-wide"><!--#img brand-yard-sign|Arrowhead Painting yard sign at a Kansas City project|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 

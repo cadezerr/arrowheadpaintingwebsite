@@ -41,7 +41,7 @@ const redirects = {
   "/warranty": "/process-warranty/",
   "/service-areas/mission-roeland-park": "/service-areas/mission/",
   "/service-areas/blue-springs-belton": "/service-areas/blue-springs/",
-  "/service-areas/northland": "/service-areas/kansas-city/",
+  "/service-areas/northland": "/service-areas/north-kansas-city/",
   "/service-areas/kansas-city-mo": "/service-areas/kansas-city/",
   "/locations": "/service-areas/",
 };
@@ -66,6 +66,19 @@ function serveFile(req, res, file, status = 200) {
       "x-content-type-options": "nosniff",
       vary: "Accept-Encoding",
     };
+    headers["accept-ranges"] = "bytes";
+    const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+    if (range && !compressible.has(ext)) {
+      const size = data.length;
+      let start = range[1] ? parseInt(range[1], 10) : size - parseInt(range[2], 10);
+      let end = range[1] && range[2] ? parseInt(range[2], 10) : size - 1;
+      if (isNaN(start) || start < 0 || start >= size || end < start) {
+        return send(res, 416, "", { "content-range": `bytes */${size}` });
+      }
+      end = Math.min(end, size - 1);
+      headers["content-range"] = `bytes ${start}-${end}/${size}`;
+      return send(res, 206, data.subarray(start, end + 1), headers);
+    }
     if (compressible.has(ext) && /\bgzip\b/.test(req.headers["accept-encoding"] || "")) {
       headers["content-encoding"] = "gzip";
       return send(res, status, zlib.gzipSync(data), headers);

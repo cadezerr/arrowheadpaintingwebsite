@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Family Owned and Operated">
+  <circle cx="100" cy="100" r="96" fill="#444545"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#e41c39" stroke-width="4"/>
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 5"/>
+  <path d="M100 42 L136 72 V112 H64 V72 Z" fill="#e41c39"/>
+  <path d="M93 112 V92 H107 V112" fill="#444545"/>
+  <path d="M58 76 L100 40 L142 76" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="100" y="138" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#fff" textLength="120" lengthAdjust="spacingAndGlyphs">FAMILY OWNED</text>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff" textLength="96" lengthAdjust="spacingAndGlyphs">&amp; OPERATED</text>
+</svg>
