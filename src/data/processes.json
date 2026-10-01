@@ -1,189 +1,211 @@
 {
   "main": {
-    "title": "Your 10-Step Path To A Beautiful Home",
+    "title": "Our Simple Two-Part Process",
     "photo": "crew-ladders-front",
     "alt": "Arrowhead painters working on the second-story gables of a Kansas City home",
-    "steps": [
-      [
-        "You Reach Out",
-        "Call us or request an estimate online. We'll get back to you within one business day."
-      ],
-      [
-        "We Call To Schedule Your Estimate",
-        "We find a time that works for you to meet at your home."
-      ],
-      [
-        "On-Site Estimate With You",
-        "We walk your property together, listen to your goals, and point out anything that needs attention."
-      ],
-      [
-        "Customized Written Quote",
-        "A clear, itemized proposal built around your home. No vague numbers and no surprise fees."
-      ],
-      [
-        "Color Consultation",
-        "Professional color guidance so you can choose with confidence."
-      ],
-      [
-        "Communication Leading Up To Your Project",
-        "Scheduling updates and a heads-up on weather or anything else that changes. You're never chasing us for an answer."
-      ],
-      [
-        "Pre-Job Walkthrough",
-        "Before work begins, we review the plan with you so everyone is on the same page."
-      ],
-      [
-        "Prep, Repairs & Painting",
-        "Our crew protects your home, preps meticulously, repairs what's needed, and paints with premium materials, with daily updates along the way."
-      ],
-      [
-        "Final Walkthrough",
-        "We review the finished work together. If anything isn't right, we take care of it before we call the job done."
-      ],
-      [
-        "Warranty",
-        "You receive your written warranty. We stand behind our work long after the ladders are gone."
-      ]
+    "phases": [
+      {
+        "name": "The Estimate",
+        "steps": [
+          [
+            "Reach Out",
+            "Call or request an estimate online."
+          ],
+          [
+            "We Schedule",
+            "We call to set a time that works for you."
+          ],
+          [
+            "On-Site Visit",
+            "We walk your home together and listen to your goals."
+          ],
+          [
+            "Custom Quote",
+            "A clear, itemized proposal with no surprises."
+          ]
+        ]
+      },
+      {
+        "name": "Your Project",
+        "steps": [
+          [
+            "Color Consultation",
+            "Pick colors with confidence."
+          ],
+          [
+            "Stay In The Loop",
+            "Scheduling and weather updates, start to finish."
+          ],
+          [
+            "Prep, Repair & Paint",
+            "Protected, prepped, and painted with premium materials."
+          ],
+          [
+            "Walkthrough & Warranty",
+            "We review it together and hand you your written warranty."
+          ]
+        ]
+      }
     ]
   },
   "exterior": {
     "title": "Our Proven Exterior Painting Process",
     "photo": "crew-three-story",
     "alt": "Arrowhead crew on ladders painting a three-story home",
-    "steps": [
-      [
-        "Free On-Site Estimate & Inspection",
-        "We walk every side of your home with you, checking paint, caulk, and wood for problem areas."
-      ],
-      [
-        "Color Consultation",
-        "We help you choose colors that work with your roof, brick, and neighborhood."
-      ],
-      [
-        "Pre-Job Walkthrough",
-        "We review the plan, schedule, and any repairs with you before we start."
-      ],
-      [
-        "Protect Your Property",
-        "Plants, walkways, driveways, windows, and fixtures are covered and protected."
-      ],
-      [
-        "Power Wash",
-        "Every surface is washed so paint bonds properly and lasts longer."
-      ],
-      [
-        "Wood Rot Repair",
-        "Rotted siding, trim, fascia, and door frames are replaced with cedar, LP SmartSide, James Hardie, AZEK, or PVC."
-      ],
-      [
-        "Scrape, Sand & Caulk",
-        "Loose paint is removed and every gap and seam is sealed against Kansas City weather."
-      ],
-      [
-        "Paint & Detail",
-        "Premium Sherwin-Williams coatings applied with care, from siding to the smallest piece of trim."
-      ],
-      [
-        "Final Walkthrough & Warranty",
-        "We review every side together, touch up anything you spot, and hand over your written warranty."
-      ]
+    "phases": [
+      {
+        "name": "Before We Start",
+        "steps": [
+          [
+            "Free Inspection",
+            "We check paint, caulk, and wood on every side."
+          ],
+          [
+            "Color Consultation",
+            "Colors that suit your roof, brick, and street."
+          ],
+          [
+            "Pre-Job Walkthrough",
+            "We confirm the plan, schedule, and repairs."
+          ]
+        ]
+      },
+      {
+        "name": "On The Job",
+        "steps": [
+          [
+            "Protect & Power Wash",
+            "Plants and surfaces covered, then a full wash."
+          ],
+          [
+            "Repair & Seal",
+            "Rotted wood replaced, gaps caulked, loose paint removed."
+          ],
+          [
+            "Paint & Detail",
+            "Premium coatings, down to the last piece of trim."
+          ],
+          [
+            "Walkthrough & Warranty",
+            "Touch-ups done, written warranty in hand."
+          ]
+        ]
+      }
     ]
   },
   "interior": {
     "title": "Our Proven Interior Painting Process",
     "photo": "int-crew-dining",
     "alt": "Arrowhead crew cutting in a dining room with floors protected",
-    "steps": [
-      [
-        "Free In-Home Estimate",
-        "We walk through each room with you and talk through your goals, colors, and timeline."
-      ],
-      [
-        "Color Consultation",
-        "Professional guidance on colors and sheens so every room works together."
-      ],
-      [
-        "Protect Your Home",
-        "Furniture is moved and covered, floors are protected, and work areas are sealed off."
-      ],
-      [
-        "Surface Prep & Drywall Repair",
-        "Nail pops, cracks, and dings are patched and sanded for smooth, flawless walls."
-      ],
-      [
-        "Paint Ceilings, Walls & Trim",
-        "Clean lines and even coverage with premium Sherwin-Williams interior paint."
-      ],
-      [
-        "Daily Cleanup & Updates",
-        "Your home is left tidy at the end of every day, and you always know what's next."
-      ],
-      [
-        "Final Walkthrough & Warranty",
-        "We review every room together, touch up anything you spot, and provide your written warranty."
-      ]
+    "phases": [
+      {
+        "name": "Before We Start",
+        "steps": [
+          [
+            "Free In-Home Estimate",
+            "We walk each room and talk through your goals."
+          ],
+          [
+            "Color Consultation",
+            "Colors and sheens that work together."
+          ]
+        ]
+      },
+      {
+        "name": "On The Job",
+        "steps": [
+          [
+            "Protect Your Home",
+            "Furniture covered, floors protected."
+          ],
+          [
+            "Prep & Patch",
+            "Nail pops, cracks, and dings smoothed out."
+          ],
+          [
+            "Paint",
+            "Ceilings, walls, and trim with clean lines."
+          ],
+          [
+            "Walkthrough & Warranty",
+            "Touch-ups done, written warranty in hand."
+          ]
+        ]
+      }
     ]
   },
   "woodrot": {
     "title": "Our Proven Wood Rot Repair & Carpentry Process",
     "photo": "rot-new-siding-panels",
     "alt": "New siding panels installed across two stories during a repair",
-    "steps": [
-      [
-        "Inspect",
-        "We probe trim and siding and show you every soft spot we find."
-      ],
-      [
-        "Itemized Quote",
-        "Visible repairs are priced up front in your written estimate."
-      ],
-      [
-        "Remove Damaged Wood",
-        "Rotted material is cut back to solid wood. Find hidden damage? We show you photos before doing extra work."
-      ],
-      [
-        "Carpentry & New Material",
-        "Our carpenters install new boards in cedar, LP SmartSide, James Hardie, AZEK, or PVC, chosen around your wants and needs."
-      ],
-      [
-        "Seal & Caulk",
-        "Joints are sealed and flashed where needed so the new boards don't fail the same way."
-      ],
-      [
-        "Paint To Match",
-        "Repairs are painted to blend in with the rest of your home."
-      ]
+    "phases": [
+      {
+        "name": "Find It",
+        "steps": [
+          [
+            "Inspect",
+            "We probe trim and siding and show you every soft spot."
+          ],
+          [
+            "Itemized Quote",
+            "Visible repairs priced up front."
+          ]
+        ]
+      },
+      {
+        "name": "Fix It",
+        "steps": [
+          [
+            "Remove Damaged Wood",
+            "Cut back to solid wood. Hidden damage? We show you first."
+          ],
+          [
+            "New Material",
+            "Cedar, LP SmartSide, James Hardie, AZEK, or PVC."
+          ],
+          [
+            "Seal & Paint",
+            "Flashed, caulked, and painted to match."
+          ]
+        ]
+      }
     ]
   },
   "commercial": {
     "title": "Our Commercial Painting Process",
     "photo": "com-crew-sanctuary",
     "alt": "Arrowhead crew painting a church sanctuary",
-    "steps": [
-      [
-        "Site Visit",
-        "We walk your property and learn how your business operates."
-      ],
-      [
-        "Detailed Proposal",
-        "A clear scope, schedule, and price for your project."
-      ],
-      [
-        "Schedule Around Your Business",
-        "Evenings, weekends, or phased work so your doors stay open."
-      ],
-      [
-        "Prep & Protect",
-        "Work areas are protected and kept safe for employees and customers."
-      ],
-      [
-        "Paint",
-        "Durable, professional-grade coatings applied efficiently and cleanly."
-      ],
-      [
-        "Walkthrough & Touch-Ups",
-        "We review the finished work with you and take care of any details."
-      ]
+    "phases": [
+      {
+        "name": "Planning",
+        "steps": [
+          [
+            "Site Visit",
+            "We learn how your business operates."
+          ],
+          [
+            "Detailed Proposal",
+            "Clear scope, schedule, and price."
+          ]
+        ]
+      },
+      {
+        "name": "Painting",
+        "steps": [
+          [
+            "Work Around You",
+            "Evenings, weekends, or phased work."
+          ],
+          [
+            "Prep & Paint",
+            "Safe, clean work areas and durable coatings."
+          ],
+          [
+            "Final Walkthrough",
+            "We review it together and handle the details."
+          ]
+        ]
+      }
     ]
   }
 }

@@ -10,24 +10,24 @@ OUT = os.path.join(ROOT, "pages", "service-areas")
 os.makedirs(OUT, exist_ok=True)
 
 CITIES = [
-    # slug, name, state, county, zips, photo
-    ("overland-park", "Overland Park", "KS", "Johnson County", ["66204", "66207", "66210", "66212", "66213", "66214", "66221", "66223"], "ext-charcoal-two-story"),
-    ("leawood", "Leawood", "KS", "Johnson County", ["66206", "66209", "66211", "66224"], "ext-lake-home"),
-    ("olathe", "Olathe", "KS", "Johnson County", ["66061", "66062"], "ext-greige-back"),
-    ("lenexa", "Lenexa", "KS", "Johnson County", ["66215", "66219", "66220", "66227"], "ext-gray-stucco-ranch"),
-    ("shawnee", "Shawnee", "KS", "Johnson County", ["66203", "66216", "66217", "66218", "66226"], "ext-charcoal-modern"),
-    ("mission", "Mission", "KS", "Johnson County", ["66202"], "ext-navy-garage-doors"),
-    ("roeland-park", "Roeland Park", "KS", "Johnson County", ["66205"], "ext-two-story-front"),
-    ("prairie-village", "Prairie Village", "KS", "Johnson County", ["66208"], "ext-green-two-story"),
-    ("kansas-city", "Kansas City", "MO", "Jackson County", ["64112", "64113", "64114", "64145"], "hero-charcoal-home"),
-    ("north-kansas-city", "North Kansas City", "MO", "the Northland", ["64118", "64119", "64151", "64153", "64154", "64155", "64156", "64157", "64158", "64163", "64164"], "drone-white-side"),
-    ("parkville", "Parkville", "MO", "Platte County", ["64152"], "ext-cream-backyard"),
-    ("lees-summit", "Lee's Summit", "MO", "Jackson County", ["64063", "64064", "64065", "64081", "64082", "64086"], "ext-two-story-front"),
-    ("greenwood", "Greenwood", "MO", "Jackson County", ["64034"], "ext-gray-stucco-side"),
-    ("blue-springs", "Blue Springs", "MO", "Jackson County", ["64014", "64015"], "ext-mustard-split"),
-    ("grandview", "Grandview", "MO", "Jackson County", ["64030"], "ext-white-chimney"),
-    ("belton", "Belton", "MO", "Cass County", ["64012"], "ext-charcoal-back-deck"),
-    ("raymore", "Raymore", "MO", "Cass County", ["64083"], "ext-lake-home-2"),
+    # slug, name, state, county, zips, photo, photo2
+    ("overland-park", "Overland Park", "KS", "Johnson County", ["66204", "66207", "66210", "66212", "66213", "66214", "66221", "66223"], "ext-gray-gables", "ext-gray-gables-2"),
+    ("leawood", "Leawood", "KS", "Johnson County", ["66206", "66209", "66211", "66224"], "ext-brick-wide", "ext-gray-flag-2"),
+    ("olathe", "Olathe", "KS", "Johnson County", ["66061", "66062"], "ext-arch-window", "ext-white-chimney"),
+    ("lenexa", "Lenexa", "KS", "Johnson County", ["66215", "66219", "66220", "66227"], "ext-gray-stone", "ext-gray-garage-2"),
+    ("shawnee", "Shawnee", "KS", "Johnson County", ["66203", "66216", "66217", "66218", "66226"], "ext-stone-arch", "ext-greige-back"),
+    ("mission", "Mission", "KS", "Johnson County", ["66202"], "ext-white-brown-garage", "ext-gray-front-3"),
+    ("roeland-park", "Roeland Park", "KS", "Johnson County", ["66205"], "ext-two-story-front", "ext-gray-garage-3"),
+    ("prairie-village", "Prairie Village", "KS", "Johnson County", ["66208"], "ext-green-two-story", "ext-brick-flag"),
+    ("kansas-city", "Kansas City", "MO", "Jackson County", ["64112", "64113", "64114", "64145"], "ext-brick-two-story", "ext-black-trim"),
+    ("north-kansas-city", "North Kansas City", "MO", "the Northland", ["64118", "64119", "64151", "64153", "64154", "64155", "64156", "64157", "64158", "64163", "64164"], "drone-white-side", "ext-gray-sign"),
+    ("parkville", "Parkville", "MO", "Platte County", ["64152"], "ext-cream-backyard", "ext-lake-home"),
+    ("lees-summit", "Lee's Summit", "MO", "Jackson County", ["64063", "64064", "64065", "64081", "64082", "64086"], "ext-taupe-wide", "ext-gray-steep-2"),
+    ("greenwood", "Greenwood", "MO", "Jackson County", ["64034"], "ext-gray-three-car", "ext-gray-hottub"),
+    ("blue-springs", "Blue Springs", "MO", "Jackson County", ["64014", "64015"], "ext-gray-front-4", "ext-gray-crepe-2"),
+    ("grandview", "Grandview", "MO", "Jackson County", ["64030"], "ext-gray-crepe", "ext-pool-rear"),
+    ("belton", "Belton", "MO", "Cass County", ["64012"], "ext-sage-front", "ext-lake-home-2"),
+    ("raymore", "Raymore", "MO", "Cass County", ["64083"], "ext-stucco-gold", "ext-charcoal-back-deck"),
 ]
 
 def label(n, st):
@@ -37,7 +37,7 @@ def label(n, st):
 PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg>'
 
 
-def page(slug, name, state, county, zips, photo):
+def page(slug, name, state, county, zips, photo, photo2):
     meta = {
         "title": f"{name}, {state} Painting Contractor | Arrowhead Painting KC",
         "description": f"Your trusted {name} painting contractor. Exterior and interior painting, wood rot repair, and color consultations with up to a 7-year warranty.",
@@ -64,7 +64,7 @@ def page(slug, name, state, county, zips, photo):
   <div class="wrap">
     <div class="page-hero-in hero-in">
       <!--#crumbs-->
-      <p class="kicker" style="color:#ff6b80">{name}, {state}</p>
+      <p class="kicker" >{name}, {state}</p>
       <h1>Your Trusted {name} Painting Contractor</h1>
       <p class="lede">Exterior and interior painting, wood repair, and color consultations for {name} homeowners, delivered with white-glove service and backed by a written warranty.</p>
       <div class="hero-actions">
@@ -97,7 +97,7 @@ def page(slug, name, state, county, zips, photo):
       <p class="muted">Proudly serving homeowners throughout {name}{" and the Northland" if slug == "north-kansas-city" else ""}.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a></div>
     </div>
-    <div class="reveal"><div class="photo photo-tall"><!--#img {photo}|Recent Arrowhead Painting exterior project near {name}|(min-width: 900px) 45vw, 100vw--></div></div>
+    <div class="reveal"><div class="photo photo-tall"><!--#img {photo2}|Recent Arrowhead Painting exterior project near {name}|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 
@@ -142,11 +142,11 @@ open(os.path.join(ROOT, "partials", "locations-menu.html"), "w").write(f'''<div 
 ''')
 
 # Hub page
-cards = "\n".join(f'      <a class="area-card reveal" href="/service-areas/{s}/"><h3>{label(n, st)}</h3><p>Painting contractor in {n}</p></a>' for s, n, st, _, z, _ in CITIES)
+cards = "\n".join(f'      <a class="area-card reveal" href="/service-areas/{s}/"><h3>{label(n, st)}</h3><p>Painting contractor in {n}</p></a>' for s, n, st, _, z, _, _ in CITIES)
 allzips = sorted({z for c in CITIES for z in c[4]})
 hub_meta = {"title": "Locations | Kansas City House Painters | Arrowhead Painting KC",
             "description": "Arrowhead Painting KC serves Overland Park, Leawood, Olathe, Lenexa, Shawnee, Prairie Village, Lee's Summit, Blue Springs, Kansas City, and more.",
-            "path": "/service-areas/", "nav": "locations", "og": "brand-yard-sign", "crumbs": [["Locations", "/service-areas/"]], "priority": "0.8"}
+            "path": "/service-areas/", "nav": "locations", "og": "kc-map", "crumbs": [["Locations", "/service-areas/"]], "priority": "0.8"}
 open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_meta, ensure_ascii=False)} -->
 
 <section class="page-hero plain">
@@ -177,7 +177,7 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
       <p class="lede">We serve homeowners all across the Kansas City metro. If your city isn't listed, reach out and we'll let you know if we can help.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
     </div>
-    <div class="reveal"><div class="photo photo-wide"><!--#img brand-yard-sign|Arrowhead Painting yard sign at a Kansas City project|(min-width: 900px) 45vw, 100vw--></div></div>
+    <div class="reveal"><div class="photo photo-wide"><!--#img kc-map|Map of the Kansas City metro cities served by Arrowhead Painting|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 

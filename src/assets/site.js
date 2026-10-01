@@ -120,15 +120,11 @@
       ticking = false;
       var y = window.scrollY, vh = window.innerHeight, max = document.documentElement.scrollHeight - vh;
       prog.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
-      if (heroMedia && y < vh * 1.2) heroMedia.style.transform = "translate3d(0," + (y * 0.35).toFixed(1) + "px,0)";
+      if (heroMedia && y < vh * 1.2) heroMedia.style.transform = "translate3d(0," + (y * 0.2).toFixed(1) + "px,0)";
       tls.forEach(function (tl) {
         var r = tl.getBoundingClientRect();
         var p = Math.min(1, Math.max(0, (vh * 0.75 - r.top) / r.height));
         tl.style.setProperty("--tlp", p.toFixed(3));
-      });
-      stackPhotos.forEach(function (ph) {
-        var r = ph.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < vh) ph.style.translate = "0 " + ((r.top + r.height / 2 - vh / 2) * -0.08).toFixed(1) + "px";
       });
     }
     window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });

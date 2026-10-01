@@ -48,14 +48,6 @@
 1400
 ]
 },
-"ext-gray-stucco-side": {
-"w": 1600,
-"h": 1200,
-"sizes": [
-800,
-1400
-]
-},
 "ext-charcoal-back-deck": {
 "w": 4032,
 "h": 3024,
@@ -148,14 +140,6 @@
 1400
 ]
 },
-"ext-mustard-split": {
-"w": 4032,
-"h": 3024,
-"sizes": [
-800,
-1200
-]
-},
 "rot-siding-closeup": {
 "w": 4284,
 "h": 5712,
@@ -164,15 +148,6 @@
 1200
 ],
 "pos": "50% 60%"
-},
-"rot-siding-patches": {
-"w": 4032,
-"h": 3024,
-"sizes": [
-800,
-1400
-],
-"pos": "60% 55%"
 },
 "rot-siding-replacement": {
 "w": 3024,
@@ -208,15 +183,6 @@
 1400
 ],
 "pos": "50% 50%"
-},
-"rot-door-trim-repair": {
-"w": 4284,
-"h": 5712,
-"sizes": [
-800,
-1200
-],
-"pos": "55% 55%"
 },
 "crew-powerwash": {
 "w": 4284,
@@ -262,15 +228,6 @@
 1200
 ],
 "pos": "50% 50%"
-},
-"crew-spray-garage": {
-"w": 1179,
-"h": 2086,
-"sizes": [
-800,
-1179
-],
-"pos": "50% 40%"
 },
 "int-great-room-crew": {
 "w": 3024,
@@ -447,17 +404,9 @@
 1200
 ]
 },
-"int-laundry-clean": {
-"w": 3030,
-"h": 3185,
-"sizes": [
-800,
-1200
-]
-},
 "hero-poster": {
 "w": 1600,
-"h": 900,
+"h": 1098,
 "sizes": [
 800,
 1400
@@ -578,47 +527,7 @@
 1400
 ]
 },
-"crew-ladders-back": {
-"w": 2882,
-"h": 2162,
-"sizes": [
-800,
-1400
-]
-},
-"crew-cutting-in": {
-"w": 2160,
-"h": 2880,
-"sizes": [
-800,
-1200
-]
-},
-"rot-new-sheathing": {
-"w": 2880,
-"h": 2160,
-"sizes": [
-800,
-1400
-]
-},
-"rot-scaffold-repair": {
-"w": 2160,
-"h": 2880,
-"sizes": [
-800,
-1200
-]
-},
 "rot-new-siding-panels": {
-"w": 2160,
-"h": 2880,
-"sizes": [
-800,
-1200
-]
-},
-"rot-trim-close": {
 "w": 2160,
 "h": 2880,
 "sizes": [
@@ -768,6 +677,686 @@
 ]
 },
 "com-crew-sanctuary": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"color-blue-home": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-craftsman-barn": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-taupe-front": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-new-trim-boards": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-blue-siding": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-siding-crew": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-seafoam-repair": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-new-trim-gray": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-siding-repair": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-green-gray": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-flag": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-dark-gray-garage": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-steep": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-white-flag": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-taupe-porch": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-taupe-wide": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-white-garages": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-gable": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-two-story": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-seafoam": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-brick-two-story": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-sage-front": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-yellow-door": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-three-story-side": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-stone-arch": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-stone-shutters": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-stucco-gold": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-brick-porch": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-front-2": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"crew-tall-ladders": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-wall-ladders": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-rear-ladders": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-front-porch": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-porch": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-blue-ladders": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-chimney": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-blue-rear": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-dining-tray": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-stair-hall": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-living-beams": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1400
+]
+},
+"int-bath": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-bedroom-fireplace": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"int-bedroom-empty": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"int-staircase": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"int-protect-crew": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"int-protect-bed": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"com-sanctuary-alt": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"com-sanctuary-entry": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"com-fellowship-hall": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"com-church-lobby-2": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"com-gym-entry": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"com-gym-stairs": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1400
+]
+},
+"ext-white-brown-garage": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-front-3": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-sign": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-three-car": {
+"w": 3024,
+"h": 4032,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-hottub": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-front-4": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-flag-2": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-garage-2": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-garage-3": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-brick-flag": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-taupe-side": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-teal-alt": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-gables": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-gables-2": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-stone": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-steep-2": {
+"w": 1440,
+"h": 1920,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-crepe": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-crepe-2": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-white-dormers": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-black-trim": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"ext-arch-window": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-arch-window-2": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-brick-wide": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-pool-rear": {
+"w": 2160,
+"h": 2880,
+"sizes": [
+800,
+1400
+]
+},
+"rot-siding-front-repair": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-board-batten-blue": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-new-boards-blue": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-seafoam-done": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"rot-blue-panels": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"kc-map": {
+"w": 1600,
+"h": 1200,
+"sizes": [
+800,
+1400
+]
+},
+"com-church-entry": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"crew-gables-2": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-rear-2": {
 "w": 4032,
 "h": 3024,
 "sizes": [

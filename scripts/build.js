@@ -117,21 +117,26 @@ function beforeAfter(n, caption) {
 </figure>`;
 }
 
-function timeline(key, extraClass = "") {
+function timeline(key, extraClass = "", photoOverride = "") {
   const p = processes[key];
   if (!p) throw new Error(`Unknown process: ${key}`);
-  const steps = p.steps
-    .map(([t, d], i) => `<li class="reveal"><span class="tl-dot">${i + 1}</span><div><h3><span class="tl-step">Step ${i + 1}:</span> ${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
+  const photo = photoOverride || p.photo;
+  let n = 0;
+  const phases = p.phases
+    .map((ph, pi) => `<div class="phase reveal">
+      <p class="phase-tag">Part ${pi + 1}</p>
+      <h3>${esc(ph.name)}</h3>
+      <ol class="phase-steps">${ph.steps.map(([t, d]) => `<li><span class="ps-num">${++n}</span><div><strong>${esc(t)}</strong><span>${esc(d)}</span></div></li>`).join("")}</ol>
+    </div>`)
     .join("\n");
   return `<section class="section tl-section ${extraClass}">
-  <div class="wrap tl-grid">
-    <div class="tl-photo reveal${images[p.photo] && images[p.photo].w > images[p.photo].h ? " tl-land" : ""}"><div class="photo">${img(p.photo, p.alt, "(min-width: 960px) 40vw, 100vw")}</div></div>
-    <div>
-      <p class="kicker">How It Works</p>
-      <h2>${esc(p.title)}</h2>
-      <ol class="tl">${steps}</ol>
-      <div class="actions"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
+  <div class="wrap">
+    <div class="section-head center reveal"><p class="kicker">How It Works</p><h2>${esc(p.title)}</h2></div>
+    <div class="phases">
+      <div class="phase-photo reveal"><div class="photo">${img(photo, p.alt, "(min-width: 960px) 30vw, 100vw")}</div></div>
+      ${phases}
     </div>
+    <div class="center mt-2"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
   </div>
 </section>`;
 }
@@ -141,7 +146,6 @@ function climateSection(key) {
   if (!c) throw new Error(`Unknown climate block: ${key}`);
   const cards = c.items.map(([t, d]) => `<div class="card reveal">${icon(iconFor(t))}<h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("\n");
   return `<section class="section climate-sec">
-  <div class="climate-deco" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="section-head center reveal">
       <p class="kicker">${esc(c.kicker)}</p>
@@ -156,7 +160,7 @@ function climateSection(key) {
 
 function expand(html) {
   return html
-    .replace(/<!--#timeline ([\w-]+)(?:\|([\w -]+))?-->/g, (_, k, c) => timeline(k, c || ""))
+    .replace(/<!--#timeline ([\w-]+)(?:\|([\w -]*))?(?:\|([\w-]+))?-->/g, (_, k, c, ph) => timeline(k, c || "", ph || ""))
     .replace(/<!--#climate ([\w-]+)-->/g, (_, k) => climateSection(k))
     .replace(/<!--#icon ([\w-]+)-->/g, (_, k) => icon(k))
     .replace(/<!--#include ([\w-]+)-->/g, (_, n) => expand(partial(n)))
