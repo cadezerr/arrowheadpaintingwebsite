@@ -39,6 +39,11 @@ const redirects = {
   "/equipment": "/about/",
   "/gallery": "/our-work/",
   "/warranty": "/process-warranty/",
+  "/service-areas/mission-roeland-park": "/service-areas/mission/",
+  "/service-areas/blue-springs-belton": "/service-areas/blue-springs/",
+  "/service-areas/northland": "/service-areas/kansas-city/",
+  "/service-areas/kansas-city-mo": "/service-areas/kansas-city/",
+  "/locations": "/service-areas/",
 };
 
 function send(res, status, body, headers = {}) {

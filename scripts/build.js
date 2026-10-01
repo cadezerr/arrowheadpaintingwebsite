@@ -31,6 +31,41 @@ const crypto = require("crypto");
 const VERSION = crypto.createHash("md5").update(read("assets/styles.css") + read("assets/site.js")).digest("hex").slice(0, 8);
 const images = JSON.parse(read("data/images.json"));
 const reviews = JSON.parse(read("data/reviews.json"));
+const processes = JSON.parse(read("data/processes.json"));
+const climate = JSON.parse(read("data/climate.json"));
+
+const ICONS = {
+  humidity: '<path d="M12 3s6 7 6 11a6 6 0 01-12 0c0-4 6-11 6-11z"/>',
+  temp: '<path d="M10 14V5a2 2 0 014 0v9a4 4 0 11-4 0z"/><path d="M12 9v7"/>',
+  wood: '<path d="M3 7h18v10H3z"/><path d="M7 7v10M3 12h4m6-5c-1 2-1 8 0 10"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  wind: '<path d="M3 8h12a3 3 0 10-3-3M3 12h17a3 3 0 11-3 3M3 16h8"/>',
+  rain: '<path d="M7 15a4 4 0 01-.5-8A5.5 5.5 0 0117 6a4 4 0 01.5 9z"/><path d="M8 18l-1 3m5-3l-1 3m5-3l-1 3"/>',
+  shield: '<path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/>',
+  google: '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
+  paint: '<path d="M4 4h12v5H4zM16 6h3v5h-8v3"/><path d="M10 14h2v7h-2z"/>',
+  palette: '<path d="M12 3a9 9 0 100 18c1 0 2-.8 2-2 0-1.5-1-2-1-3s1-2 2.5-2H18a3 3 0 003-3c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7" r="1"/>',
+  chat: '<path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/>',
+  tools: '<path d="M14 6l4 4-9 9H5v-4z"/><path d="M13 7l4 4"/>',
+  home: '<path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/>',
+  star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+  bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+  smile: '<circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>',
+  trend: '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+};
+function icon(name) {
+  return `<span class="card-icon"><svg viewBox="0 0 24 24">${ICONS[name] || ICONS.star}</svg></span>`;
+}
+function iconFor(title) {
+  const t = title.toLowerCase();
+  if (/humid/.test(t)) return "humidity";
+  if (/temperature/.test(t)) return "temp";
+  if (/wood/.test(t)) return "wood";
+  if (/uv|sun/.test(t)) return "sun";
+  if (/wind/.test(t)) return "wind";
+  if (/moisture|rain/.test(t)) return "rain";
+  return "shield";
+}
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 function partial(name) {
@@ -82,8 +117,47 @@ function beforeAfter(n, caption) {
 </figure>`;
 }
 
+function timeline(key, extraClass = "") {
+  const p = processes[key];
+  if (!p) throw new Error(`Unknown process: ${key}`);
+  const steps = p.steps
+    .map(([t, d], i) => `<li class="reveal"><span class="tl-dot">${i + 1}</span><div><h3><span class="tl-step">Step ${i + 1}:</span> ${esc(t)}</h3><p>${esc(d)}</p></div></li>`)
+    .join("\n");
+  return `<section class="section tl-section ${extraClass}">
+  <div class="wrap tl-grid">
+    <div class="tl-photo reveal"><div class="photo">${img(p.photo, p.alt, "(min-width: 960px) 40vw, 100vw")}</div></div>
+    <div>
+      <p class="kicker">How It Works</p>
+      <h2>${esc(p.title)}</h2>
+      <ol class="tl">${steps}</ol>
+      <div class="actions"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
+    </div>
+  </div>
+</section>`;
+}
+
+function climateSection(key) {
+  const c = climate[key];
+  if (!c) throw new Error(`Unknown climate block: ${key}`);
+  const cards = c.items.map(([t, d]) => `<div class="card reveal">${icon(iconFor(t))}<h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("\n");
+  return `<section class="section bg-ink peak-top">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="kicker">${esc(c.kicker)}</p>
+      <h2>${esc(c.title)}</h2>
+      <p class="lede">${esc(c.intro)}</p>
+    </div>
+    <div class="cards">${cards}</div>
+    <div class="center mt-2"><a class="btn btn-white btn-lg" href="/contact/">Request A Free Estimate</a></div>
+  </div>
+</section>`;
+}
+
 function expand(html) {
   return html
+    .replace(/<!--#timeline ([\w-]+)(?:\|([\w -]+))?-->/g, (_, k, c) => timeline(k, c || ""))
+    .replace(/<!--#climate ([\w-]+)-->/g, (_, k) => climateSection(k))
+    .replace(/<!--#icon ([\w-]+)-->/g, (_, k) => icon(k))
     .replace(/<!--#include ([\w-]+)-->/g, (_, n) => expand(partial(n)))
     .replace(/<!--#img ([^>]*?)-->/g, (_, a) => {
       const [name, alt, sizes, cls, eager] = a.split("|");

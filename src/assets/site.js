@@ -20,6 +20,7 @@
   var menuBtn = document.querySelector("[data-menu-btn]");
   var nav = document.querySelector("[data-nav]");
   function setMenu(open) {
+    if (open && header) nav.style.top = Math.round(header.getBoundingClientRect().bottom) + "px";
     nav.classList.toggle("open", open);
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.classList.toggle("menu-open", open);
@@ -146,6 +147,22 @@
       if (e.key === "ArrowLeft") show(idx - 1);
       if (e.key === "ArrowRight") show(idx + 1);
     });
+  }
+
+  // ---- Services marquee: duplicate cards for a seamless loop ----
+  document.querySelectorAll(".marquee-track").forEach(function (track) {
+    Array.prototype.slice.call(track.children).forEach(function (c) {
+      var d = c.cloneNode(true);
+      d.setAttribute("aria-hidden", "true");
+      d.setAttribute("tabindex", "-1");
+      track.appendChild(d);
+    });
+  });
+
+  // ---- Hide floating estimate tab on the contact page ----
+  if (location.pathname.indexOf("/contact") === 0) {
+    var fe = document.querySelector("[data-float-estimate]");
+    if (fe) fe.hidden = true;
   }
 
   // ---- Footer year ----
