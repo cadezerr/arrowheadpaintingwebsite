@@ -1018,3 +1018,11 @@ h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-ct
 .footer-cities li { break-inside: avoid; }
 .badges img.badge-round { height: 112px; }
 @media (max-width: 760px) { .badges img.badge-round { height: 80px; } }
+.card-link { display: block; color: inherit; text-decoration: none; }
+.card-link:hover { color: inherit; }
+.card-link h3 { color: var(--ink); }
+.seo-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px 28px; }
+.seo-links h3 { font-size: 1.15rem; margin: 0 0 6px; }
+.seo-links ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; font-size: .92rem; }
+.seo-links a { color: var(--muted); text-decoration: none; }
+.seo-links a:hover { color: var(--red); text-decoration: underline; }

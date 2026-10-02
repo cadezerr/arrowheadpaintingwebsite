@@ -37,10 +37,46 @@ def label(n, st):
 PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0114 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.6" fill="#fff"/></svg>'
 
 
+LOCAL = {
+    "overland-park": "from established neighborhoods in north Overland Park to the newer subdivisions south of 135th Street",
+    "leawood": "from Leawood's established neighborhoods to the larger, newer homes in south Leawood",
+    "olathe": "across one of Johnson County's fastest-growing cities, from older Olathe neighborhoods to brand-new subdivisions",
+    "lenexa": "from homes near Lenexa City Center to the established neighborhoods east of I-435",
+    "shawnee": "from older homes near downtown Shawnee to the newer neighborhoods in western Shawnee",
+    "mission": "in Mission's established, tree-lined neighborhoods",
+    "roeland-park": "in Roeland Park's established neighborhoods along the State Line corridor",
+    "prairie-village": "in Prairie Village's classic, mature neighborhoods",
+    "kansas-city": "from Brookside and Waldo to south Kansas City and the Northland",
+    "north-kansas-city": "throughout North Kansas City and Northland communities like Gladstone and Liberty",
+    "parkville": "in Parkville's hillside neighborhoods above the Missouri River",
+    "lees-summit": "from downtown Lee's Summit to the newer subdivisions across the city",
+    "greenwood": "in Greenwood and the surrounding eastern Jackson County area",
+    "blue-springs": "throughout Blue Springs and eastern Jackson County",
+    "grandview": "throughout Grandview and south Kansas City",
+    "belton": "throughout Belton and northern Cass County",
+    "raymore": "in Raymore's growing neighborhoods and across Cass County",
+}
+
+def svc_cards(name):
+    items = [
+        ("/exterior-painting/", f"{name} Exterior Painting", f"Exterior house painting for {name} homes: siding, trim, soffits, fascia, doors, and garage doors, with thorough prep and premium paint."),
+        ("/interior-painting/", f"{name} Interior Painting", f"Interior painting in {name} for walls, ceilings, trim, doors, and stairwells, with furniture and floors fully protected."),
+        ("/wood-rot-repair/", f"{name} Wood Rot Repair", f"Wood rot repair in {name}: rotted trim, fascia, soffits, door frames, and window sills replaced and painted to match."),
+        ("/wood-rot-repair/", f"{name} Siding Repair & Carpentry", f"Siding repair and replacement in {name} with James Hardie, LP SmartSide, cedar, AZEK, or PVC, installed by our carpenters."),
+        ("/interior-painting/", f"{name} Cabinet Painting", f"Kitchen and bathroom cabinet painting in {name}, cleaned, sanded, primed, and finished with a durable enamel."),
+        ("/commercial-painting/", f"{name} Commercial Painting", f"Commercial painting in {name} for offices, retail, churches, rentals, and HOAs, scheduled around your business."),
+    ]
+    return "\n".join(f'      <a class="card card-link reveal" href="{h}"><h3>{t}</h3><p>{d}</p></a>' for h, t, d in items)
+
+
 def page(slug, name, state, county, zips, photo, photo2):
+    short = "North KC" if slug == "north-kansas-city" else name
+    title = f"{name} Painters | House Painting & Wood Repair | Arrowhead"
+    if len(title) > 66: title = f"{name} Painters | House Painting & Wood Rot Repair"
+    if len(title) > 68: title = f"{name} House Painters | Arrowhead Painting"
     meta = {
-        "title": f"{name}, {state} Painting Contractor | Arrowhead Painting KC",
-        "description": f"Your trusted {name} painting contractor. Exterior and interior painting, wood rot repair, and color consultations with up to a 7-year warranty.",
+        "title": title,
+        "description": (lambda d: d if len(d) <= 160 else f"Top-rated {name} house painters for exterior painting, interior painting, and wood rot repair in {name}, {state}. Free estimates.")(f"Top-rated {name} house painters. Exterior painting, interior painting, wood rot repair, siding repair, and cabinet painting in {name}, {state}. Free estimates."),
         "path": f"/service-areas/{slug}/",
         "nav": "locations",
         "og": photo,
@@ -49,10 +85,12 @@ def page(slug, name, state, county, zips, photo, photo2):
         "crumbs": [["Locations", "/service-areas/"], [name, f"/service-areas/{slug}/"]],
         "priority": "0.7",
         "faq": [
-            [f"Do you serve all of {name}?", f"Yes. We paint homes throughout {name}{' and the surrounding Northland' if slug == 'north-kansas-city' else ''}."],
-            [f"How do I get a painting estimate in {name}?", "Call us at (913) 472-8077 or request a free estimate online. We'll call to schedule a time to walk your property, then send you a written, itemized quote."],
-            ["Do you repair wood rot before painting?", "Yes. We replace rotted siding, trim, fascia, and door frames with cedar, LP SmartSide, James Hardie, AZEK, or PVC before we paint, so your new finish lasts."],
-            ["Is your work warrantied?", "Every project comes with a written warranty: up to 7 years on exteriors and 2 years on interiors."],
+            [f"Who are the best house painters in {name}?", f"Arrowhead Painting is a family-owned painting company rated 5.0 stars on Google and 100% recommended on Facebook. We paint homes {LOCAL[slug]}, with thorough prep, in-house wood repair, and a written warranty on every project."],
+            [f"Do you offer exterior house painting in {name}?", f"Yes. Exterior painting is our specialty. We power wash, repair wood rot, caulk every seam, and paint siding, trim, soffits, fascia, doors, and garage doors on {name} homes, with exterior warranties of 3, 5, or 7 years."],
+            [f"Do you do interior painting in {name}?", f"Yes. We paint walls, ceilings, trim, doors, stairwells, and cabinets in {name} homes, with furniture and floors fully protected and a 2-year written warranty."],
+            [f"Do you repair wood rot and siding in {name}?", "Yes. We replace rotted siding, trim, fascia, soffits, door frames, and window sills with cedar, LP SmartSide, James Hardie, AZEK, or PVC, then paint everything to match."],
+            [f"How much does it cost to paint a house in {name}?", f"Every home is different, so we give every {name} homeowner a free, customized, itemized estimate after walking the property together. Price depends on size, siding type, repairs, and the paint you choose."],
+            [f"How do I get a painting estimate in {name}?", "Call us at (913) 472-8077 or request a free estimate online. We'll schedule a time to walk your property, then send you a written, itemized quote."],
         ],
     }
     zl = "".join(f"<li>{z}</li>" for z in zips)
@@ -66,7 +104,7 @@ def page(slug, name, state, county, zips, photo, photo2):
       <!--#crumbs-->
       <p class="kicker" >{name}, {state}</p>
       <h1>Your Trusted {name} Painting Contractor</h1>
-      <p class="lede">Exterior and interior painting, wood repair, and color consultations for {name} homeowners, delivered with white-glove service and backed by a written warranty.</p>
+      <p class="lede">Top-rated {name} house painters for exterior painting, interior painting, wood rot repair, and siding repair, delivered with white-glove service and backed by a written warranty.</p>
       <div class="hero-actions">
         <a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a>
         <a class="btn btn-ghost-light btn-lg" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a>
@@ -94,10 +132,22 @@ def page(slug, name, state, county, zips, photo, photo2):
       <p class="kicker">Painting In {name}</p>
       <h2>Craftsmanship Built To Last For {name} Homes</h2>
       <!--#include intro-->
-      <p class="muted">Proudly serving homeowners throughout {name}{" and the Northland" if slug == "north-kansas-city" else ""}.</p>
+      <p>Looking for experienced {name} painters? Arrowhead Painting provides exterior house painting, interior painting, wood rot repair, siding replacement, and cabinet painting for homeowners {LOCAL[slug]}. Whether you need a full exterior repaint, a few rooms refreshed, or rotted trim replaced before it spreads, our {name} painting contractors handle it from start to finish.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a></div>
     </div>
     <div class="reveal"><div class="photo photo-tall"><!--#img {photo2}|Recent Arrowhead Painting exterior project near {name}|(min-width: 900px) 45vw, 100vw--></div></div>
+  </div>
+</section>
+
+<section class="section bg-mist" id="services">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="kicker">{name} Painting Services</p>
+      <h2>House Painters Serving {name}, {state}</h2>
+    </div>
+    <div class="cards">
+{svc_cards(name)}
+    </div>
   </div>
 </section>
 
@@ -143,6 +193,7 @@ open(os.path.join(ROOT, "partials", "locations-menu.html"), "w").write(f'''<div 
 
 # Hub page
 cards = "\n".join(f'      <a class="area-card reveal" href="/service-areas/{s}/"><h3>{label(n, st)}</h3><p>Painting contractor in {n}</p></a>' for s, n, st, _, z, _, _ in CITIES)
+seo = "\n".join(f'''      <div><h3><a href="/service-areas/{s}/" style="color:inherit">{n} Painters</a></h3><ul><li><a href="/service-areas/{s}/#services">{n} Exterior Painting</a></li><li><a href="/service-areas/{s}/#services">{n} Interior Painting</a></li><li><a href="/service-areas/{s}/#services">{n} Wood Rot Repair</a></li><li><a href="/service-areas/{s}/#services">{n} Siding Repair</a></li><li><a href="/service-areas/{s}/#services">{n} Cabinet Painting</a></li></ul></div>''' for s, n, st, *_ in CITIES)
 allzips = sorted({z for c in CITIES for z in c[4]})
 hub_meta = {"title": "Locations | Kansas City House Painters | Arrowhead Painting KC",
             "description": "Arrowhead Painting KC serves Overland Park, Leawood, Olathe, Lenexa, Shawnee, Prairie Village, Lee's Summit, Blue Springs, Kansas City, and more.",
@@ -165,6 +216,16 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
   <div class="wrap">
     <div class="area-grid">
 {cards}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-mist">
+  <div class="wrap">
+    <div class="section-head reveal"><p class="kicker">Services By City</p><h2>Painting Services Across The Kansas City Metro</h2>
+      <p class="lede">Arrowhead Painting is a Kansas City house painting company serving both sides of State Line. Find exterior painters, interior painters, and wood rot repair near you.</p></div>
+    <div class="seo-links">
+{seo}
     </div>
   </div>
 </section>
