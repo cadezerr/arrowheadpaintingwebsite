@@ -177,7 +177,7 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
       <p class="lede">We serve homeowners all across the Kansas City metro. If your city isn't listed, reach out and we'll let you know if we can help.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
     </div>
-    <div class="reveal"><div class="photo photo-wide"><!--#img kc-map|Map of the Kansas City metro cities served by Arrowhead Painting|(min-width: 900px) 45vw, 100vw--></div></div>
+    <div class="reveal"><div class="photo photo-map"><!--#img kc-map|Map of the Kansas City metro cities served by Arrowhead Painting|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 

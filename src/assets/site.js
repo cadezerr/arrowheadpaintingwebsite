@@ -134,11 +134,15 @@
     // ---- Cursor glow on the home hero ----
     var hero = document.querySelector(".hero");
     if (hero && window.matchMedia("(pointer: fine)").matches) {
-      hero.addEventListener("mousemove", function (e) {
+      var mx = null, my = null;
+      function glow() {
+        if (mx === null) return;
         var r = hero.getBoundingClientRect();
-        hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
-        hero.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
-      });
+        hero.style.setProperty("--mx", (mx - r.left).toFixed(0) + "px");
+        hero.style.setProperty("--my", (my - r.top).toFixed(0) + "px");
+      }
+      document.addEventListener("mousemove", function (e) { mx = e.clientX; my = e.clientY; glow(); }, { passive: true });
+      window.addEventListener("scroll", glow, { passive: true });
     }
   }
 
