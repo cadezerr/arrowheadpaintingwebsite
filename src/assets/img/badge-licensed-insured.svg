@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" role="img" aria-label="Licensed and Insured">
-  <path d="M84 10 L150 34 V86 C150 126 122 154 84 170 C46 154 18 126 18 86 V34 Z" fill="#1d4fa3"/>
-  <path d="M84 10 L150 34 V86 C150 126 122 154 84 170 Z" fill="#2563c9"/>
+  <path d="M112 58 H412 L398 90 L412 122 H112 Z" fill="#1d4fa3"/>
+  <path d="M112 58 H412 L408 67 H112 Z" fill="#2563c9" opacity=".6"/>
+  <path d="M84 10 L150 34 V86 C150 126 122 154 84 170 C46 154 18 126 18 86 V34 Z" fill="#1d4fa3" stroke="#fff" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M84 14 L146 36.5 V86 C146 123 120 150 84 165.5 Z" fill="#2563c9"/>
   <path d="M50 88 L75 113 L122 62" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M150 56 H412 L398 90 L412 124 H150 Z" fill="#1d4fa3"/>
-  <text x="168" y="102" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="32" fill="#fff" textLength="214" lengthAdjust="spacingAndGlyphs">LICENSED &amp; INSURED</text>
+  <text x="172" y="101" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="31" fill="#fff" textLength="212" lengthAdjust="spacingAndGlyphs">LICENSED &amp; INSURED</text>
 </svg>
