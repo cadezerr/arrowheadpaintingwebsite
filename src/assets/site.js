@@ -314,7 +314,7 @@
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { ok: r.ok, body: b }; }); })
         .then(function (res) {
           if (!res.ok) throw new Error(res.body && res.body.error);
-          form.innerHTML = '<div class="form-done"><h3>Request received</h3><p>Thanks, ' + (data.firstName || "") + '! We\'ll reach out within one business day to set up your free estimate. Need us sooner? Call <a href="tel:+19134728077">(913) 472-8077</a>.</p></div>';
+          form.innerHTML = '<div class="form-done"><h3>Request received</h3><p>Thanks, ' + (data.firstName || "") + '! We\'ll typically typically reach out within one business day to set up your free estimate. Need us sooner? Call <a href="tel:+19134728077">(913) 472-8077</a>.</p></div>';
         })
         .catch(function (err) {
           status.className = "form-status err";
