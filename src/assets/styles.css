@@ -1046,3 +1046,8 @@ h1, h2, h3, h4 { line-height: 1.04; }
 .hero-in .kicker { background: rgba(20,22,23,.62); padding: 7px 14px 7px 12px; border-radius: 999px; align-self: flex-start; text-shadow: none; color: #ff3b55; }
 .hero-in .kicker::before { background: #ff3b55; }
 @media (max-width: 760px) { .hero-in .kicker { padding: 6px 12px 6px 10px; font-size: clamp(.82rem, 3.9vw, 1.2rem); } }
+/* Prevent sideways drag on phones */
+html, body { max-width: 100%; overflow-x: hidden; }
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
+.topbar { overflow: hidden; }
+@media (max-width: 760px) { .topbar-in { gap: 10px; } .topbar-in p { font-size: clamp(.62rem, 2.9vw, .74rem); } .topbar-in .stars svg, .topbar-in p > svg { width: 9px; height: 9px; } }
