@@ -156,7 +156,7 @@ async function handleContact(req, res) {
   const page = clean(b.page, 200);
   const message = String(b.message ?? "").trim().slice(0, 5000);
 
-  if (!firstName || !lastName || !email || !phone || !service || !zip) {
+  if (!firstName || !lastName || !email || !phone || !service || !zip || !timeframe) {
     return json(res, 400, { error: "Please fill in every required field." });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

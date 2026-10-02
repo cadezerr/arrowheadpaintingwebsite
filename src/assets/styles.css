@@ -1013,3 +1013,6 @@ h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-ct
 .topbar-in .tb-g { justify-self: center; }
 .topbar-in .topbar-social { justify-self: end; }
 @media (max-width: 760px) { .topbar-in { display: flex; justify-content: center; } .topbar-in .tb-g { order: -1; } }
+
+.site-footer ul.footer-cities { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; columns: auto; }
+.footer-cities li { break-inside: avoid; }

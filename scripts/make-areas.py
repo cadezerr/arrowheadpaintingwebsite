@@ -154,7 +154,7 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
     <div class="page-hero-in hero-in">
       <!--#crumbs-->
       <h1>Locations We Serve</h1>
-      <p class="lede">Arrowhead Painting proudly serves homeowners and businesses across the Kansas City metro, on both sides of State Line.</p>
+      <p class="lede">Arrowhead Painting proudly serves homeowners and businesses across the Kansas City Metro, on both sides of State Line.</p>
       <div class="hero-actions"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
     </div>
   </div>
@@ -174,10 +174,10 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
     <div class="reveal">
       <p class="kicker">Don't See Your City?</p>
       <h2>Give Us A Call</h2>
-      <p class="lede">We serve homeowners all across the Kansas City metro. If your city isn't listed, reach out and we'll let you know if we can help.</p>
+      <p class="lede">We serve homeowners all across the Kansas City Metro. If your city isn't listed, reach out and we'll let you know if we can help.</p>
       <div class="actions"><a class="btn btn-red" href="/contact/">Request A Free Estimate</a><a class="btn btn-outline" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a></div>
     </div>
-    <div class="reveal"><div class="photo photo-map"><!--#img kc-map|Map of the Kansas City metro cities served by Arrowhead Painting|(min-width: 900px) 45vw, 100vw--></div></div>
+    <div class="reveal"><div class="photo photo-map"><!--#img kc-map|Map of the Kansas City Metro cities served by Arrowhead Painting|(min-width: 900px) 45vw, 100vw--></div></div>
   </div>
 </section>
 

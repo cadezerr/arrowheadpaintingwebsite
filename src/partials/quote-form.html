@@ -8,7 +8,7 @@
     <div class="field"><label for="qf-email">Email</label><input id="qf-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
   </div>
   <div class="qf-row">
-    <div class="field"><label for="qf-service">What do you need?</label>
+    <div class="field"><label for="qf-service">What are you looking to get done?</label>
       <select id="qf-service" name="service" required>
         <option value="">Choose one</option>
         <option>Exterior painting</option>
@@ -21,13 +21,12 @@
     </div>
     <div class="field"><label for="qf-zip">ZIP code</label><input id="qf-zip" name="zip" inputmode="numeric" autocomplete="postal-code" required maxlength="10" pattern="[0-9]{5}(-[0-9]{4})?"></div>
   </div>
-  <div class="field"><label for="qf-time">When would you like it done? <span class="opt">(optional)</span></label>
-    <select id="qf-time" name="timeframe">
-      <option value="">No preference</option>
+  <div class="field"><label for="qf-time">When would you like it done?</label>
+    <select id="qf-time" name="timeframe" required>
+      <option value="">Choose one</option>
       <option>As soon as possible</option>
       <option>Within 1–2 months</option>
       <option>This season</option>
-      <option>Next spring</option>
       <option>Just planning ahead</option>
     </select>
   </div>

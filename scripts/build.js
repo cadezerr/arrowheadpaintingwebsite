@@ -214,7 +214,7 @@ const businessLd = {
   email: BUSINESS.email,
   logo: `${SITE}/assets/img/logo.png`,
   image: imgUrl("hero-charcoal-home"),
-  description: "Premium exterior painting, interior painting, wood rot and siding repair, and light commercial painting across the Kansas City metro. Warranty-backed work with white-glove service.",
+  description: "Premium exterior painting, interior painting, wood rot and siding repair, and light commercial painting across the Kansas City Metro. Warranty-backed work with white-glove service.",
   founder: { "@type": "Person", name: "Cade Zerr" },
   address: { "@type": "PostalAddress", addressLocality: "Lenexa", addressRegion: "KS", addressCountry: "US" },
   areaServed: AREAS.map((a) => ({ "@type": "City", name: a })),
@@ -242,7 +242,7 @@ function pageLd(meta, url) {
       name: meta.service,
       serviceType: meta.service,
       provider: { "@id": `${SITE}/#business` },
-      areaServed: meta.area ? { "@type": "City", name: meta.area } : { "@type": "AdministrativeArea", name: "Kansas City metropolitan area" },
+      areaServed: meta.area ? { "@type": "City", name: meta.area } : { "@type": "AdministrativeArea", name: "Kansas City Metropolitan area" },
       url,
     });
   }
