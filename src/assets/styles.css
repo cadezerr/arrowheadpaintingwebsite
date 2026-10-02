@@ -1002,3 +1002,6 @@ h1, h2, h3, h4, .btn, .kicker, .nav-list > li > a, .sub a strong, .nav-mobile-ct
 .topbar-in p { white-space: nowrap; }
 @media (max-width: 760px) { .topbar-in { justify-content: center; gap: 14px; } .topbar-in p { font-size: .74rem; } .topbar-in p svg { width: 10px; height: 10px; } }
 @media (max-width: 380px) { .topbar-in p { font-size: .68rem; } }
+.hero-proof .hp-break { flex-basis: 100%; height: 0; padding: 0; margin: -6px 0 0; }
+.phase-video { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; border-radius: var(--r-lg); }
+@media (max-width: 1000px) { .phase-video { min-height: 0; aspect-ratio: 16 / 9; } }

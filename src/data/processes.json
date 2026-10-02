@@ -42,11 +42,14 @@
           ],
           [
             "Walkthrough & Warranty",
-            "We review it together and hand you your written warranty."
+            "We review it together, and your written warranty is sent with your invoice online."
           ]
         ]
       }
-    ]
+    ],
+    "video": "walkthrough.mp4",
+    "videoPoster": "walk-backyard",
+    "videoAlt": "Cade walking a home with a homeowner during an on-site estimate"
   },
   "exterior": {
     "title": "Our Proven Exterior Painting Process",
@@ -87,7 +90,7 @@
           ],
           [
             "Walkthrough & Warranty",
-            "Touch-ups done, written warranty in hand."
+            "Touch-ups done, and your written warranty arrives online with your invoice."
           ]
         ]
       }
@@ -128,7 +131,7 @@
           ],
           [
             "Walkthrough & Warranty",
-            "Touch-ups done, written warranty in hand."
+            "Touch-ups done, and your written warranty arrives online with your invoice."
           ]
         ]
       }

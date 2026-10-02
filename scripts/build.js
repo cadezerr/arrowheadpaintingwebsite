@@ -133,7 +133,7 @@ function timeline(key, extraClass = "", photoOverride = "") {
   <div class="wrap">
     <div class="section-head center reveal"><p class="kicker">How It Works</p><h2>${esc(p.title)}</h2></div>
     <div class="phases">
-      <div class="phase-photo reveal"><div class="photo">${img(photo, p.alt, "(min-width: 960px) 30vw, 100vw")}</div></div>
+      <div class="phase-photo reveal"><div class="photo">${!photoOverride && p.video ? `<video class="phase-video" autoplay muted loop playsinline preload="none" poster="/assets/img/${p.videoPoster}-800.webp" aria-label="${esc(p.videoAlt)}"><source src="/assets/video/${p.video}" type="video/mp4"></video>` : img(photo, p.alt, "(min-width: 960px) 30vw, 100vw")}</div></div>
       ${phases}
     </div>
     <div class="center mt-2"><a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a></div>
