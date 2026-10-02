@@ -1,10 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Family Owned and Operated">
-  <circle cx="100" cy="100" r="96" fill="#444545"/>
-  <circle cx="100" cy="100" r="86" fill="none" stroke="#e41c39" stroke-width="4"/>
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 5"/>
-  <path d="M100 42 L136 72 V112 H64 V72 Z" fill="#e41c39"/>
-  <path d="M93 112 V92 H107 V112" fill="#444545"/>
-  <path d="M58 76 L100 40 L142 76" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="100" y="138" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#fff" textLength="120" lengthAdjust="spacingAndGlyphs">FAMILY OWNED</text>
-  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="16" fill="#fff" textLength="96" lengthAdjust="spacingAndGlyphs">&amp; OPERATED</text>
+  <defs>
+    <path id="ft" d="M30 100 A70 70 0 0 1 170 100"/>
+    <path id="fb" d="M21 100 A79 79 0 0 0 179 100"/>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="#444545"/>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#e41c39" stroke-width="4"/>
+  <circle cx="100" cy="100" r="58" fill="#fff"/>
+  <path d="M100 66 L126 88 V120 H74 V88 Z" fill="#e41c39"/>
+  <path d="M94 120 V103 H106 V120" fill="#fff"/>
+  <path d="M68 91 L100 63 L132 91" fill="none" stroke="#444545" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="21" fill="#fff" letter-spacing="2"><textPath href="#ft" startOffset="50%" text-anchor="middle">FAMILY OWNED</textPath></text>
+  <text font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="21" fill="#fff" letter-spacing="2"><textPath href="#fb" startOffset="50%" text-anchor="middle">&amp; OPERATED</textPath></text>
+  <circle cx="22" cy="100" r="3" fill="#e41c39"/><circle cx="178" cy="100" r="3" fill="#e41c39"/>
 </svg>
