@@ -2,6 +2,14 @@
 (function () {
   "use strict";
   var doc = document.documentElement;
+  // Anything already visible on load stays visible (no flash when JS starts)
+  (function () {
+    var vh0 = window.innerHeight;
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh0 && r.bottom > 0) el.classList.add("in", "no-anim");
+    });
+  })();
   doc.classList.remove("no-js");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -79,28 +87,11 @@
   });
 
   if (!reduce) {
-    // ---- Split hero headlines into words that rise in ----
-    document.querySelectorAll(".hero-in > h1, .page-hero-in > h1").forEach(function (h) {
-      var n = 0;
-      (function walk(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
-          if (c.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            c.textContent.split(/(\s+)/).forEach(function (part) {
-              if (!part) return;
-              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-              var m = document.createElement("span"); m.className = "w-mask";
-              var w = document.createElement("span"); w.className = "w-in"; w.style.setProperty("--w", n++); w.textContent = part;
-              m.appendChild(w); frag.appendChild(m);
-            });
-            c.parentNode.replaceChild(frag, c);
-          } else if (c.nodeType === 1) walk(c);
-        });
-      })(h);
-    });
-
     // ---- Give reveals some variety + stagger grids ----
+    var vhNow = window.innerHeight;
+    function onScreen(el) { var r = el.getBoundingClientRect(); return r.top < vhNow && r.bottom > 0; }
     document.querySelectorAll(".split, .split-wide, .reviews-personal, .tl-grid").forEach(function (sp) {
+      if (onScreen(sp)) return;
       var kids = Array.prototype.filter.call(sp.children, function (k) { return k.classList.contains("reveal"); });
       if (kids.length === 2) {
         var rev = sp.classList.contains("reverse");
@@ -109,6 +100,7 @@
       }
     });
     document.querySelectorAll(".cards, .overview, .gallery, .ba-grid, .posts, .services, .why-list, .faq-jump, .reviews-grid").forEach(function (g) {
+      if (onScreen(g)) return;
       var i = 0;
       Array.prototype.forEach.call(g.children, function (k) {
         if (!k.classList.contains("reveal")) k.classList.add("reveal");
@@ -117,7 +109,7 @@
         i++;
       });
     });
-    document.querySelectorAll(".badges img").forEach(function (b, i) { b.classList.add("reveal", "r-up"); b.style.transitionDelay = i * 110 + "ms"; });
+    document.querySelectorAll(".badges img").forEach(function (b, i) { if (onScreen(b)) return; b.classList.add("reveal", "r-up"); b.style.transitionDelay = i * 110 + "ms"; });
     document.querySelectorAll(".tl li.reveal").forEach(function (li, i) { li.classList.add("r-right"); });
 
     // ---- Scroll progress, parallax, timeline draw ----

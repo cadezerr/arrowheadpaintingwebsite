@@ -203,6 +203,14 @@ function titleText(html) {
   // only touch text between tags, never tag markup or entities
   return html.replace(/(^|>)([^<]+)/g, (_, gt, text) => gt + text.replace(/(^|\s)(\S+)/g, (m, sp, w) => (w.startsWith("&") || w.includes("@") ? sp + w : sp + titleWord(w))));
 }
+
+function splitHeadline(html) {
+  return html.replace(/(<div class="(?:page-)?hero-in[^"]*">[\s\S]*?<h1[^>]*>)([\s\S]*?)(<\/h1>)/, (m, open, inner, close) => {
+    let n = 0;
+    const out = inner.replace(/(^|>)([^<]+)/g, (mm, gt, text) => gt + text.replace(/\S+/g, (w) => `<span class="w-mask"><span class="w-in" style="--w:${n++}">${w}</span></span>`));
+    return open + out + close;
+  });
+}
 function titleCaseHtml(html) {
   html = html.replace(/(<(h[1-4]|summary|figcaption class="tc")\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, open, tag, inner, close) => open + titleText(inner) + close);
   html = html.replace(/(<(a|button|p|span|li|strong)\b[^>]*class="[^"]*\b(btn|kicker|link-arrow|filter|svc-badge|photo-tag|tier-flag|footer-h|g-cap)\b[^"]*"[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, open, tag, cls, inner, close) => open + titleText(inner) + close);
@@ -349,7 +357,7 @@ for (const { file, meta, body } of pages) {
     .replace("{{preload}}", meta.preload ? `<link rel="preload" as="image" href="/assets/img/${meta.preload}-800.webp" imagesrcset="${images[meta.preload].sizes.map((w) => `/assets/img/${meta.preload}-${w}.webp ${w}w`).join(", ")}" imagesizes="100vw" fetchpriority="high">` : "");
   head = head.replace(/\{\{current-([\w-]+)\}\}/g, (_, k) => (meta.nav === k ? ' aria-current="page"' : ""));
 
-  const out0 = titleCaseHtml(expand(head + html + footer)).replace('/assets/styles.css"', `/assets/styles.css?v=${VERSION}"`).replace('/assets/site.js"', `/assets/site.js?v=${VERSION}"`);
+  const out0 = splitHeadline(titleCaseHtml(expand(head + html + footer))).replace('/assets/styles.css"', `/assets/styles.css?v=${VERSION}"`).replace('/assets/site.js"', `/assets/site.js?v=${VERSION}"`);
   const out = out0.replace(/\/assets\/(img|video)\/([\w.-]+\.(?:webp|png|jpg|svg|mp4))(?=[\s"',)])/g, (m, dir, f) => `${m}?v=${assetHash(dir + "/" + f)}`);
   const left = out.match(/<!--#[\w-]+[^>]*-->|\{\{[\w-]+\}\}/);
   if (left) throw new Error(`${path.relative(src, file)}: unexpanded placeholder ${left[0]}`);
