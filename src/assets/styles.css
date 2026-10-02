@@ -1051,3 +1051,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
 @supports (overflow-x: clip) { html, body { overflow-x: clip; } }
 .topbar { overflow: hidden; }
 @media (max-width: 760px) { .topbar-in { gap: 10px; } .topbar-in p { font-size: clamp(.62rem, 2.9vw, .74rem); } .topbar-in .stars svg, .topbar-in p > svg { width: 9px; height: 9px; } }
+
+/* Stop sideways drag on phones */
+html, body { overflow-x: hidden; max-width: 100%; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
+body { overscroll-behavior-x: none; }
+@media (max-width: 1020px) { .nav:not(.open) { visibility: hidden; } }
