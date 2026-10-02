@@ -22,6 +22,7 @@
   function setMenu(open) {
     if (open && header) nav.style.top = Math.round(header.getBoundingClientRect().bottom) + "px";
     nav.classList.toggle("open", open);
+    if (!open) document.querySelectorAll(".has-sub.open").forEach(function (o) { o.classList.remove("open"); var t = o.querySelector("[data-sub-toggle]"); if (t) t.setAttribute("aria-expanded", "false"); });
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.classList.toggle("menu-open", open);
   }
@@ -116,11 +117,12 @@
     var tls = document.querySelectorAll(".tl");
     var stackPhotos = document.querySelectorAll(".photo-stack .photo:nth-child(2)");
     var ticking = false;
+    var isPhone = window.matchMedia("(max-width: 760px)").matches;
     function frame() {
       ticking = false;
       var y = window.scrollY, vh = window.innerHeight, max = document.documentElement.scrollHeight - vh;
       prog.style.setProperty("--p", max > 0 ? (y / max).toFixed(4) : 0);
-      if (heroMedia && y < vh * 1.2) heroMedia.style.transform = "translate3d(0," + (y * 0.2).toFixed(1) + "px,0)";
+      if (heroMedia && !isPhone && y < vh * 1.2) heroMedia.style.transform = "translate3d(0," + (y * 0.2).toFixed(1) + "px,0)";
       tls.forEach(function (tl) {
         var r = tl.getBoundingClientRect();
         var p = Math.min(1, Math.max(0, (vh * 0.75 - r.top) / r.height));
