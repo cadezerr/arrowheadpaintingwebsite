@@ -1,8 +1,8 @@
 {
   "main": {
     "title": "Our Simple Two-Part Process",
-    "photo": "crew-ladders-front",
-    "alt": "Arrowhead painters working on the second-story gables of a Kansas City home",
+    "photo": "walk-pointing",
+    "alt": "Cade pointing out trim details to a homeowner during an on-site estimate",
     "phases": [
       {
         "name": "The Estimate",
@@ -46,10 +46,7 @@
           ]
         ]
       }
-    ],
-    "video": "walkthrough.mp4",
-    "videoPoster": "walk-backyard",
-    "videoAlt": "Cade walking a home with a homeowner during an on-site estimate"
+    ]
   },
   "exterior": {
     "title": "Our Proven Exterior Painting Process",
