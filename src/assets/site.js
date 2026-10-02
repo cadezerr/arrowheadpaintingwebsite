@@ -49,6 +49,15 @@
     }
   });
 
+  // ---- Hero video: reveal only once frames are actually moving ----
+  var hv = document.querySelector(".hero-video");
+  if (hv) {
+    var showV = function () { if (hv.currentTime > 0.05) hv.classList.add("is-playing"); else requestAnimationFrame(showV); };
+    hv.addEventListener("playing", function () { requestAnimationFrame(showV); });
+    if (reduce) { hv.removeAttribute("autoplay"); hv.pause(); }
+    var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {});
+  }
+
   // ---- Warranty tabs ----
   document.querySelectorAll("[data-tabs]").forEach(function (box) {
     var tabs = Array.prototype.slice.call(box.querySelectorAll("[role=tab]"));
