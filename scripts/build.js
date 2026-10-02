@@ -28,6 +28,14 @@ const BUSINESS = {
 const read = (p) => fs.readFileSync(path.join(src, p), "utf8");
 // Version stamp so browsers always load the latest CSS/JS after an update
 const crypto = require("crypto");
+const assetHashes = {};
+function assetHash(rel) {
+  if (!(rel in assetHashes)) {
+    try { assetHashes[rel] = crypto.createHash("md5").update(fs.readFileSync(path.join(src, "assets", rel))).digest("hex").slice(0, 8); }
+    catch (e) { assetHashes[rel] = VERSION; }
+  }
+  return assetHashes[rel];
+}
 const VERSION = crypto.createHash("md5").update(read("assets/styles.css") + read("assets/site.js")).digest("hex").slice(0, 8);
 const images = JSON.parse(read("data/images.json"));
 const reviews = JSON.parse(read("data/reviews.json"));
@@ -341,7 +349,8 @@ for (const { file, meta, body } of pages) {
     .replace("{{preload}}", meta.preload ? `<link rel="preload" as="image" href="/assets/img/${meta.preload}-800.webp" imagesrcset="${images[meta.preload].sizes.map((w) => `/assets/img/${meta.preload}-${w}.webp ${w}w`).join(", ")}" imagesizes="100vw" fetchpriority="high">` : "");
   head = head.replace(/\{\{current-([\w-]+)\}\}/g, (_, k) => (meta.nav === k ? ' aria-current="page"' : ""));
 
-  const out = titleCaseHtml(expand(head + html + footer)).replace('/assets/styles.css"', `/assets/styles.css?v=${VERSION}"`).replace('/assets/site.js"', `/assets/site.js?v=${VERSION}"`);
+  const out0 = titleCaseHtml(expand(head + html + footer)).replace('/assets/styles.css"', `/assets/styles.css?v=${VERSION}"`).replace('/assets/site.js"', `/assets/site.js?v=${VERSION}"`);
+  const out = out0.replace(/\/assets\/(img|video)\/([\w.-]+\.(?:webp|png|jpg|svg|mp4))(?=[\s"',)])/g, (m, dir, f) => `${m}?v=${assetHash(dir + "/" + f)}`);
   const left = out.match(/<!--#[\w-]+[^>]*-->|\{\{[\w-]+\}\}/);
   if (left) throw new Error(`${path.relative(src, file)}: unexpanded placeholder ${left[0]}`);
 
