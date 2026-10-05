@@ -1085,3 +1085,8 @@ body { overscroll-behavior-x: none; }
 .reveal.no-anim, .reveal.no-anim .photo, .reveal.no-anim .photo img { transition: none !important; }
 .reveal.no-anim .photo { clip-path: none !important; }
 .reveal.no-anim h2::after, .no-anim .section-head h2::after { transition: none !important; }
+
+/* Blog quick answer box (AI overview / featured snippet target) */
+.answer-box { background: var(--mist); border: 1px solid rgba(0,0,0,.06); border-left: 4px solid var(--red); border-radius: 0 var(--r) var(--r) 0; padding: 18px 22px; margin: 0 0 1.8em; }
+.answer-box .answer-label { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #e41c39; margin: 0 0 .35em; }
+.answer-box p:last-child { margin: 0; }

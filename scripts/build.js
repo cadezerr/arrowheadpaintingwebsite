@@ -279,11 +279,23 @@ function pageLd(meta, url) {
       headline: meta.h1 || meta.title,
       description: meta.description,
       datePublished: meta.article.date,
-      dateModified: meta.article.date,
-      image: imgUrl(meta.og || "hero-charcoal-home"),
-      author: { "@type": "Person", name: "Cade Zerr", url: `${SITE}/about/` },
+      dateModified: meta.article.updated || meta.article.date,
+      image: { "@type": "ImageObject", url: `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`, width: 1200, height: 630 },
+      author: { "@type": "Person", name: "Cade Zerr", jobTitle: "Owner", url: `${SITE}/about/`, worksFor: { "@id": `${SITE}/#business` } },
       publisher: { "@id": `${SITE}/#business` },
       mainEntityOfPage: url,
+      inLanguage: "en-US",
+      ...(meta.keywords ? { keywords: meta.keywords.join(", "), about: meta.keywords.map((k) => ({ "@type": "Thing", name: k })) } : {}),
+    });
+  }
+  if (meta.path === "/blog/") {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Arrowhead Painting KC Blog",
+      url,
+      publisher: { "@id": `${SITE}/#business` },
+      blogPost: blogPosts.map((p) => ({ "@type": "BlogPosting", headline: p.h1, url: SITE + p.path, datePublished: p.article.date, dateModified: p.article.updated || p.article.date })),
     });
   }
   return out.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n");
