@@ -1093,3 +1093,9 @@ body { overscroll-behavior-x: none; }
 
 /* Hold the hero headline animation until fonts are ready (no mid-animation font swap) */
 .fw .w-in, .fw .hero-in > *, .fw .page-hero-in > * { animation-play-state: paused !important; }
+
+/* Nextdoor icon: brand green on hover so it reads as Nextdoor, not "home" */
+.social a.nd:hover { background: #8ed500; border-color: #8ed500; }
+.social a.nd:hover svg { fill: #1b1b1b; }
+.topbar-social .social a.nd:hover { background: transparent; }
+.topbar-social .social a.nd:hover svg { fill: #8ed500; }
