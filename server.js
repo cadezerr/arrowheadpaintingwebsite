@@ -193,8 +193,24 @@ async function handleContact(req, res) {
   }
 }
 
+const CANONICAL_HOST = "arrowheadpaintingkc.com";
 const server = http.createServer((req, res) => {
   const { pathname } = new URL(req.url, "http://localhost");
+  const host = String(req.headers["x-forwarded-host"] || req.headers.host || "").split(",")[0].trim().toLowerCase().replace(/:\d+$/, "");
+  const proto = String(req.headers["x-forwarded-proto"] || "").split(",")[0].trim().toLowerCase();
+  // Enforce HTTPS and the bare domain (only on the real domain, so preview URLs keep working)
+  if (host === CANONICAL_HOST || host === "www." + CANONICAL_HOST) {
+    if (proto === "http" || host !== CANONICAL_HOST) {
+      return send(res, 301, "", { location: `https://${CANONICAL_HOST}${req.url}` });
+    }
+    res.setHeader("strict-transport-security", "max-age=31536000");
+  }
+  res.setHeader("x-content-type-options", "nosniff");
+  res.setHeader("referrer-policy", "strict-origin-when-cross-origin");
+
+  // Google Search Console HTML-file verification (set GOOGLE_VERIFICATION_FILE=googleXXXX.html)
+  const gvf = process.env.GOOGLE_VERIFICATION_FILE;
+  if (gvf && pathname === "/" + gvf) return send(res, 200, `google-site-verification: ${gvf}`, { "content-type": "text/html; charset=utf-8" });
 
   if (pathname === "/api/contact") {
     if (req.method !== "POST") return json(res, 405, { error: "Method not allowed" });
@@ -204,6 +220,10 @@ const server = http.createServer((req, res) => {
 
   const trimmed = pathname.replace(/\/+$/, "");
   if (redirects[trimmed]) return send(res, 301, "", { location: redirects[trimmed] });
+  // Old WordPress pages, posts, and categories
+  if (/^\/(sitemap_index|page-sitemap|post-sitemap|category-sitemap)\.xml$/.test(trimmed)) return send(res, 301, "", { location: "/sitemap.xml" });
+  if (["/test", "/home-2"].includes(trimmed)) return send(res, 301, "", { location: "/" });
+  if (["/blog-2", "/feed"].includes(trimmed) || /^\/(construction|category|guides|equipment|tag|author)\//.test(pathname)) return send(res, 301, "", { location: "/blog/" });
 
   serveStatic(req, res, pathname);
 });

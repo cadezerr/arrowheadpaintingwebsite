@@ -229,6 +229,7 @@ const businessLd = {
   telephone: BUSINESS.tel,
   email: BUSINESS.email,
   logo: `${SITE}/assets/img/logo.png`,
+  geo: { "@type": "GeoCoordinates", latitude: 38.9536, longitude: -94.7336 },
   image: imgUrl("hero-charcoal-home"),
   description: "Premium exterior painting, interior painting, wood rot and siding repair, and light commercial painting across the Kansas City Metro. Warranty-backed work with white-glove service.",
   founder: { "@type": "Person", name: "Cade Zerr" },
@@ -244,6 +245,8 @@ const businessLd = {
 
 function pageLd(meta, url) {
   const out = [businessLd];
+  if (meta.path === "/") out.push({ "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE}/#website`, url: `${SITE}/`, name: BUSINESS.name, publisher: { "@id": `${SITE}/#business` }, inLanguage: "en-US" });
+  out.push({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${url}#webpage`, url, name: meta.title, description: meta.description, isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#business` }, primaryImageOfPage: `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`, inLanguage: "en-US" });
   if (meta.crumbs) {
     out.push({
       "@context": "https://schema.org",
@@ -312,6 +315,7 @@ function walk(dir) {
 const header = partial("header");
 const footer = partial("footer");
 const sitemap = [];
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const blogPosts = [];
 
 const files = walk(path.join(src, "pages"));
@@ -350,7 +354,9 @@ for (const { file, meta, body } of pages) {
     .replace(/\{\{title\}\}/g, esc(meta.title))
     .replace(/\{\{description\}\}/g, esc(meta.description))
     .replace(/\{\{canonical\}\}/g, url)
-    .replace(/\{\{ogImage\}\}/g, imgUrl(meta.og || "hero-charcoal-home"))
+    .replace(/\{\{ogImage\}\}/g, `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`)
+    .replace(/\{\{ogAlt\}\}/g, esc(meta.ogAlt || meta.title))
+    .replace(/\{\{gsv\}\}/g, process.env.GOOGLE_SITE_VERIFICATION ? `<meta name="google-site-verification" content="${esc(process.env.GOOGLE_SITE_VERIFICATION)}">` : "")
     .replace(/\{\{ogType\}\}/g, meta.article ? "article" : "website")
     .replace(/\{\{robots\}\}/g, meta.noindex ? "noindex, follow" : "index, follow")
     .replace("{{jsonld}}", pageLd(meta, url))
@@ -367,14 +373,14 @@ for (const { file, meta, body } of pages) {
   const outFile = name === "index" || name === "404" ? path.join(dist, `${name}.html`) : name.endsWith("/index") ? path.join(dist, name + ".html") : path.join(dist, name, "index.html");
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, out);
-  if (!meta.noindex) sitemap.push({ loc: url, pri: meta.path === "/" ? "1.0" : meta.priority || "0.7" });
+  if (!meta.noindex) sitemap.push({ loc: url, pri: meta.path === "/" ? "1.0" : meta.priority || "0.7", mod: (meta.article && meta.article.updated) || (meta.article && meta.article.date) || BUILD_DATE });
 }
 
 fs.writeFileSync(
   path.join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap
     .sort((a, b) => b.pri.localeCompare(a.pri))
-    .map((s) => `  <url><loc>${s.loc}</loc><priority>${s.pri}</priority></url>`)
+    .map((s) => `  <url><loc>${s.loc}</loc><lastmod>${s.mod}</lastmod><priority>${s.pri}</priority></url>`)
     .join("\n")}\n</urlset>\n`
 );
 fs.writeFileSync(path.join(dist, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${SITE}/sitemap.xml\n`);

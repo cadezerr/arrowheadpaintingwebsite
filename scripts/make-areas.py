@@ -214,6 +214,7 @@ open(os.path.join(OUT, "index.html"), "w").write(f'''<!--meta {json.dumps(hub_me
 
 <section class="section">
   <div class="wrap">
+    <h2 class="sr">Cities We Serve</h2>
     <div class="area-grid">
 {cards}
     </div>
