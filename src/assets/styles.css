@@ -1100,7 +1100,7 @@ body { overscroll-behavior-x: none; }
 .social a.tt svg { fill: #fff !important; filter: drop-shadow(-1px -1px 0 #25f4ee) drop-shadow(1px 1px 0 #fe2c55); }
 .social a.nd svg { fill: #8ed500 !important; }
 .social a.fb:hover { background: #1877f2 !important; border-color: #1877f2 !important; }
-.social a.ig:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%) !important; border-color: transparent !important; }
+.social a.ig:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) border-box !important; border-color: transparent !important; }
 .social a.tt:hover { background: #000 !important; border-color: #000 !important; }
 .social a.nd:hover { background: #8ed500 !important; border-color: #8ed500 !important; }
 .social a.fb:hover svg, .social a.ig:hover svg, .social a.nd:hover svg { fill: #fff !important; }
