@@ -29,6 +29,7 @@
 <link rel="preload" href="/assets/fonts/figtree.woff" as="font" type="font/woff" crossorigin>
 {{preload}}
 <link rel="stylesheet" href="/assets/styles.css">
+<script>(function(d){var c=d.classList;c.add("fw");var done=function(){c.remove("fw")};try{Promise.all([document.fonts.load('800 1em "Big Shoulders Display"'),document.fonts.load("400 1em Figtree")]).then(done,done)}catch(e){done()}setTimeout(done,1200)})(document.documentElement)</script>
 {{jsonld}}
 </head>
 <body>
@@ -73,7 +74,7 @@
           <a href="/about/"{{current-about}}>About</a>
           <button class="sub-toggle" aria-expanded="false" aria-label="Show about menu" data-sub-toggle><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
           <ul class="sub">
-            <li><a href="/about/"><strong>About Arrowhead</strong><span>Meet Cade and the team</span></a></li>
+            <li><a href="/about/"><strong>About Arrowhead</strong><span>Meet Cade, the owner</span></a></li>
             <li><a href="/process-warranty/"><strong>Process &amp; Warranty</strong><span>How we work, what's covered</span></a></li>
             <li><a href="/faqs/"><strong>FAQs</strong><span>Answers to common questions</span></a></li>
           </ul>

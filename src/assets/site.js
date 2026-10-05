@@ -62,8 +62,13 @@
   if (hv) {
     var showV = function () { if (hv.currentTime > 0) { hv.classList.add("is-playing"); } else requestAnimationFrame(showV); };
     hv.addEventListener("playing", function () { requestAnimationFrame(showV); });
-    if (reduce) { hv.removeAttribute("autoplay"); hv.pause(); }
-    var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {});
+    // Start the drone after the headline has animated in, so the video decoder
+    // never competes with the text animation (the still underneath is frame 1).
+    if (!reduce) {
+      var startV = function () { var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {}); };
+      var go = function () { setTimeout(startV, window.innerWidth <= 760 ? 700 : 1100); };
+      if (document.readyState === "complete") go(); else window.addEventListener("load", go, { once: true });
+    }
   }
 
   // ---- Warranty tabs ----

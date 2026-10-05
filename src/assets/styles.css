@@ -1090,3 +1090,6 @@ body { overscroll-behavior-x: none; }
 .answer-box { background: var(--mist); border: 1px solid rgba(0,0,0,.06); border-left: 4px solid var(--red); border-radius: 0 var(--r) var(--r) 0; padding: 18px 22px; margin: 0 0 1.8em; }
 .answer-box .answer-label { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #e41c39; margin: 0 0 .35em; }
 .answer-box p:last-child { margin: 0; }
+
+/* Hold the hero headline animation until fonts are ready (no mid-animation font swap) */
+.fw .w-in, .fw .hero-in > *, .fw .page-hero-in > * { animation-play-state: paused !important; }
