@@ -57,13 +57,30 @@
     }
   });
 
-  // ---- Hero video: reveal only once frames are actually moving ----
+  // ---- Hero video: start smoothly with no visible hand-off ----
+  // The still image underneath is the video's exact first frame. We wait until
+  // enough video is buffered to play without stalling, swap to the video while
+  // it's still on frame 1 (looks identical), then start playback a frame later.
   var hv = document.querySelector(".hero-video");
-  if (hv) {
-    var showV = function () { if (hv.currentTime > 0) { hv.classList.add("is-playing"); } else requestAnimationFrame(showV); };
-    hv.addEventListener("playing", function () { requestAnimationFrame(showV); });
-    if (reduce) { hv.removeAttribute("autoplay"); hv.pause(); }
-    else { var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {}); }
+  if (hv && !reduce) {
+    var started = false;
+    var playIt = function () { var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {}); };
+    var go = function () {
+      if (started) return; started = true;
+      hv.classList.add("is-playing");
+      requestAnimationFrame(function () { requestAnimationFrame(playIt); });
+    };
+    if (hv.readyState >= 4) go();
+    else {
+      hv.addEventListener("canplaythrough", go, { once: true });
+      // Phones that don't buffer until play() is called: start anyway, reveal once moving
+      setTimeout(function () {
+        if (started) return;
+        if (hv.readyState >= 3) { go(); return; }
+        hv.addEventListener("playing", function () { if (!started) { started = true; hv.classList.add("is-playing"); } }, { once: true });
+        playIt();
+      }, 900);
+    }
   }
 
   // ---- Warranty tabs ----
