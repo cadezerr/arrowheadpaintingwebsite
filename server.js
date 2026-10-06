@@ -132,6 +132,45 @@ function readJson(req, limit = 20_000) {
   });
 }
 
+function escHtml(v) {
+  return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function estimateEmailHtml(d) {
+  const digits = d.phone.replace(/[^\d+]/g, "");
+  const when = new Date().toLocaleString("en-US", { timeZone: "America/Chicago", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const row = (label, value) => `<tr><td style="padding:10px 0;border-bottom:1px solid #eceeef;color:#6b7174;font-size:13px;width:120px;vertical-align:top">${label}</td><td style="padding:10px 0;border-bottom:1px solid #eceeef;color:#1f2224;font-size:15px;font-weight:600">${value}</td></tr>`;
+  const btn = (href, label, bg, fg) => `<a href="${href}" style="display:inline-block;margin:0 8px 8px 0;padding:12px 20px;border-radius:999px;background:${bg};color:${fg};font-weight:700;font-size:14px;text-decoration:none">${label}</a>`;
+  return `<!doctype html><html><body style="margin:0;padding:0;background:#f2f3f4">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f3f4;padding:24px 12px"><tr><td align="center">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:14px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<tr><td style="background:#202325;padding:22px 28px;border-bottom:4px solid #e41c39">
+<div style="color:#ffffff;font-size:20px;font-weight:800;letter-spacing:.06em">ARROWHEAD <span style="color:#e41c39">PAINTING</span></div>
+<div style="color:#c9cdcf;font-size:13px;margin-top:4px">New estimate request · ${escHtml(when)}</div>
+</td></tr>
+<tr><td style="padding:26px 28px 8px">
+<div style="font-size:24px;font-weight:800;color:#1f2224">${escHtml(d.fullName)}</div>
+<div style="font-size:15px;color:#e41c39;font-weight:700;margin-top:4px">${escHtml(d.service)} · ${escHtml(d.timeframe)}</div>
+</td></tr>
+<tr><td style="padding:14px 28px 6px">
+${btn(`tel:${escHtml(digits)}`, `Call ${escHtml(d.firstName)}`, "#e41c39", "#ffffff")}${btn(`sms:${escHtml(digits)}`, "Text", "#202325", "#ffffff")}${btn(`mailto:${escHtml(d.email)}?subject=${encodeURIComponent("Your free estimate with Arrowhead Painting")}`, "Email", "#eceeef", "#1f2224")}
+</td></tr>
+<tr><td style="padding:6px 28px 4px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+${row("Phone", `<a href="tel:${escHtml(digits)}" style="color:#1f2224;text-decoration:none">${escHtml(d.phone)}</a>`)}
+${row("Email", `<a href="mailto:${escHtml(d.email)}" style="color:#1f2224">${escHtml(d.email)}</a>`)}
+${row("Service", escHtml(d.service))}
+${row("ZIP code", escHtml(d.zip))}
+${row("Timeframe", escHtml(d.timeframe))}
+</table></td></tr>
+<tr><td style="padding:18px 28px 6px">
+<div style="color:#6b7174;font-size:13px;margin-bottom:6px">Project details</div>
+<div style="background:#f6f7f7;border-left:4px solid #e41c39;border-radius:0 8px 8px 0;padding:14px 16px;color:#1f2224;font-size:15px;line-height:1.5;white-space:pre-wrap">${d.message ? escHtml(d.message) : '<span style="color:#9aa0a3">No details given</span>'}</div>
+</td></tr>
+<tr><td style="padding:18px 28px 26px;color:#9aa0a3;font-size:12px">Sent from the ${escHtml(d.page || "/")} page on arrowheadpaintingkc.com. Hit reply to answer ${escHtml(d.firstName)} directly.</td></tr>
+</table></td></tr></table></body></html>`;
+}
+
 async function handleContact(req, res) {
   const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim() || req.socket.remoteAddress;
   const now = Date.now();
@@ -169,23 +208,38 @@ async function handleContact(req, res) {
     return json(res, 500, { error: "Your request didn't go through. Please call (913) 472-8077." });
   }
 
+  const fullName = `${firstName} ${lastName}`;
+  const text = [
+    `New estimate request from the website`,
+    "",
+    `Name: ${fullName}`,
+    `Phone: ${phone}`,
+    `Email: ${email}`,
+    `Service: ${service}`,
+    `ZIP: ${zip}`,
+    `Timeframe: ${timeframe}`,
+    `Sent from: ${page || "/"}`,
+    "",
+    message || "(no details given)",
+  ].join("\n");
+  const mail = {
+    to: recipient,
+    replyTo: email,
+    subject: `New Estimate Request: ${service} – ${fullName} (${zip})`,
+    text,
+    html: estimateEmailHtml({ fullName, firstName, phone, email, service, zip, timeframe, page, message }),
+  };
+
   try {
-    await sendEmail({
-      to: recipient,
-      replyTo: email,
-      subject: `Estimate request: ${service} – ${firstName} ${lastName} (${zip})`,
-      text: [
-        `Name: ${firstName} ${lastName}`,
-        `Phone: ${phone}`,
-        `Email: ${email}`,
-        `Service: ${service}`,
-        `ZIP: ${zip}`,
-        `Timeframe: ${timeframe || "(not given)"}`,
-        `Sent from: ${page || "/"}`,
-        "",
-        message || "(no details given)",
-      ].join("\n"),
-    });
+    // Send as "Arrowhead Painting Website" from the business domain once it's
+    // connected to this app; until then the gateway rejects that sender, so
+    // fall back to the app's default address.
+    try {
+      await sendEmail({ ...mail, from: "Arrowhead Painting Website <website@arrowheadpaintingkc.com>" });
+    } catch (err) {
+      console.warn("email.custom_from.fallback", String(err && err.message));
+      await sendEmail(mail);
+    }
     json(res, 200, { success: true });
   } catch (err) {
     console.error("email.send.failed", err);
