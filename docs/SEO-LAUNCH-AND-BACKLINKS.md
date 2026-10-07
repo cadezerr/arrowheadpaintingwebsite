@@ -21,7 +21,7 @@ The domain arrowheadpaintingkc.com still points to the old WordPress site (hoste
 - Website link: `https://arrowheadpaintingkc.com/` (add `?utm_source=gbp` if you want to track it).
 - Primary category: Painter. Secondary: House painter, Painting contractor, Siding contractor (if offered).
 - Services: Exterior painting, Interior painting, Wood rot repair, Siding repair, Cabinet painting, Commercial painting, Deck staining, Drywall repair.
-- Service areas: all 17 cities on the site.
+- Service areas: all 19 cities on the site.
 - Post weekly: one project photo + city + service ("Exterior repaint in Olathe, SuperPaint, 3-year warranty").
 - Ask every customer for a review that mentions their city and the service.
 

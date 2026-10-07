@@ -218,7 +218,7 @@ function titleCaseHtml(html) {
 }
 
 // ---------- Structured data ----------
-const AREAS = ["Overland Park", "Leawood", "Olathe", "Lenexa", "Shawnee", "Mission", "Roeland Park", "Prairie Village", "Lee's Summit", "Blue Springs", "Belton", "Raymore", "Grandview", "Greenwood", "Kansas City", "North Kansas City", "Parkville"];
+const AREAS = ["Overland Park", "Leawood", "Olathe", "Lenexa", "Shawnee", "Mission", "Roeland Park", "Prairie Village", "Lee's Summit", "Blue Springs", "Belton", "Raymore", "Grandview", "Greenwood", "Kansas City", "North Kansas City", "Gladstone", "Liberty", "Parkville"];
 const businessLd = {
   "@context": "https://schema.org",
   "@type": "HousePainter",

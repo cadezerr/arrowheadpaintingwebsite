@@ -1495,5 +1495,37 @@
 800,
 1400
 ]
+},
+"ext-tan-two-story-garage": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-ranch-beds": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-tan-two-story-side": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-gray-tree-side": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
 }
 }
