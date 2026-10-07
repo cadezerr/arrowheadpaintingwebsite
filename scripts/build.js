@@ -218,7 +218,7 @@ function titleCaseHtml(html) {
 }
 
 // ---------- Structured data ----------
-const AREAS = ["Overland Park", "Leawood", "Olathe", "Lenexa", "Shawnee", "Mission", "Roeland Park", "Prairie Village", "Lee's Summit", "Blue Springs", "Belton", "Raymore", "Grandview", "Greenwood", "Kansas City", "Parkville", "Liberty", "Gladstone"];
+const AREAS = ["Overland Park", "Leawood", "Olathe", "Lenexa", "Shawnee", "Mission", "Roeland Park", "Prairie Village", "Lee's Summit", "Blue Springs", "Belton", "Raymore", "Grandview", "Greenwood", "Kansas City", "North Kansas City", "Parkville"];
 const businessLd = {
   "@context": "https://schema.org",
   "@type": "HousePainter",
@@ -229,11 +229,11 @@ const businessLd = {
   telephone: BUSINESS.tel,
   email: BUSINESS.email,
   logo: `${SITE}/assets/img/logo.png`,
-  geo: { "@type": "GeoCoordinates", latitude: 38.9536, longitude: -94.7336 },
+  geo: { "@type": "GeoCoordinates", latitude: 38.9822, longitude: -94.6708 },
   image: imgUrl("hero-charcoal-home"),
   description: "Premium exterior painting, interior painting, wood rot and siding repair, and light commercial painting across the Kansas City Metro. Warranty-backed work with white-glove service.",
   founder: { "@type": "Person", name: "Cade Zerr" },
-  address: { "@type": "PostalAddress", addressLocality: "Lenexa", addressRegion: "KS", addressCountry: "US" },
+  address: { "@type": "PostalAddress", addressLocality: "Overland Park", addressRegion: "KS", addressCountry: "US" },
   areaServed: AREAS.map((a) => ({ "@type": "City", name: a })),
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
