@@ -1527,5 +1527,53 @@
 800,
 1400
 ]
+},
+"ext-stucco-stone-ranch": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-tan-rear-deck": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"crew-tan-two-story": {
+"w": 2882,
+"h": 2162,
+"sizes": [
+800,
+1400
+]
+},
+"ext-ranch-three-car": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"ext-tan-side-ac": {
+"w": 4032,
+"h": 3024,
+"sizes": [
+800,
+1400
+]
+},
+"crew-white-ladder": {
+"w": 2160,
+"h": 1620,
+"sizes": [
+800,
+1400
+]
 }
 }
