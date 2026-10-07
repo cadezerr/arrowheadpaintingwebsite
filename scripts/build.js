@@ -20,7 +20,10 @@ const BUSINESS = {
   tel: "+19134728077",
   email: "Info@arrowheadpaintingkc.com",
   reviewUrl: "https://g.page/r/CV7Pk7KhPc-oEAE/review",
-  googleUrl: "https://www.google.com/search?q=arrowhead+painting+kc",
+  googleUrl: "https://maps.google.com/?cid=12164008883246059358",
+  profileUrl: "https://share.google/R0TwkhTuChleqn4tZ",
+  mapsUrl: "https://maps.google.com/?cid=12164008883246059358",
+  mapEmbed: "https://maps.google.com/maps?cid=12164008883246059358&amp;output=embed",
   rating: "5.0",
   reviewCount: "61",
 };
@@ -190,6 +193,8 @@ function expand(html) {
     .replace(/\{\{email\}\}/g, BUSINESS.email)
     .replace(/\{\{reviewUrl\}\}/g, BUSINESS.reviewUrl)
     .replace(/\{\{googleUrl\}\}/g, BUSINESS.googleUrl)
+    .replace(/\{\{mapsUrl\}\}/g, BUSINESS.mapsUrl)
+    .replace(/\{\{mapEmbed\}\}/g, BUSINESS.mapEmbed)
     .replace(/\{\{rating\}\}/g, BUSINESS.rating)
     .replace(/\{\{reviewCount\}\}/g, BUSINESS.reviewCount);
 }
@@ -239,7 +244,8 @@ const businessLd = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "17:00" },
     { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
   ],
-  sameAs: ["https://www.facebook.com/arrowheadpaintingkc/", "https://www.instagram.com/arrowheadpaintingkc/", "https://www.tiktok.com/@arrowheadpaintingkc", "https://nextdoor.com/pages/arrowhead-painting-kc-overland-park-ks/"],
+  hasMap: BUSINESS.mapsUrl,
+  sameAs: [BUSINESS.mapsUrl, BUSINESS.profileUrl, "https://www.facebook.com/arrowheadpaintingkc/", "https://www.instagram.com/arrowheadpaintingkc/", "https://www.tiktok.com/@arrowheadpaintingkc", "https://nextdoor.com/pages/arrowhead-painting-kc-overland-park-ks/"],
   knowsAbout: ["Exterior house painting", "Interior painting", "Wood rot repair", "Siding repair", "James Hardie siding", "LP SmartSide", "Cabinet painting", "Commercial painting", "Color consultation"],
 };
 
