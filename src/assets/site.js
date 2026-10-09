@@ -57,29 +57,39 @@
     }
   });
 
-  // ---- Hero video: start smoothly with no visible hand-off ----
-  // The still image underneath is the video's exact first frame. We wait until
-  // enough video is buffered to play without stalling, swap to the video while
-  // it's still on frame 1 (looks identical), then start playback a frame later.
+  // ---- Hero video ----
+  // The still image underneath is the video's exact first frame, so the swap is invisible.
+  // Phones (iOS especially) won't download the video until play() is called, so on touch
+  // devices we start it right away and reveal it once frames are actually moving.
+  // On desktop we wait until it can play through without stalling, then start it on frame 1.
   var hv = document.querySelector(".hero-video");
   if (hv && !reduce) {
-    var started = false;
-    var playIt = function () { var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {}); };
-    var go = function () {
-      if (started) return; started = true;
-      hv.classList.add("is-playing");
-      requestAnimationFrame(function () { requestAnimationFrame(playIt); });
+    var shown = false;
+    var reveal = function () { if (!shown) { shown = true; hv.classList.add("is-playing"); } };
+    var playIt = function () { hv.muted = true; var p = hv.play && hv.play(); if (p && p.catch) p.catch(function () {}); };
+    var whenMoving = function () {
+      var check = function () { if (hv.currentTime > 0.05) { reveal(); hv.removeEventListener("timeupdate", check); } };
+      hv.addEventListener("timeupdate", check);
     };
-    if (hv.readyState >= 4) go();
-    else {
-      hv.addEventListener("canplaythrough", go, { once: true });
-      // Phones that don't buffer until play() is called: start anyway, reveal once moving
-      setTimeout(function () {
-        if (started) return;
-        if (hv.readyState >= 3) { go(); return; }
-        hv.addEventListener("playing", function () { if (!started) { started = true; hv.classList.add("is-playing"); } }, { once: true });
-        playIt();
-      }, 900);
+    var touch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (touch) {
+      whenMoving();
+      playIt();
+      // If the first attempt was blocked (e.g. still loading), try again on the first touch/scroll
+      var retry = function () { if (hv.paused) playIt(); };
+      window.addEventListener("touchstart", retry, { once: true, passive: true });
+      window.addEventListener("scroll", retry, { once: true, passive: true });
+    } else {
+      var go = function () {
+        if (shown) return;
+        reveal();
+        requestAnimationFrame(function () { requestAnimationFrame(playIt); });
+      };
+      if (hv.readyState >= 4) go();
+      else {
+        hv.addEventListener("canplaythrough", go, { once: true });
+        setTimeout(function () { if (!shown) { whenMoving(); playIt(); } }, 1500);
+      }
     }
   }
 
