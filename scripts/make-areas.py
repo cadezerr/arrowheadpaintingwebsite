@@ -86,7 +86,7 @@ def page(slug, name, state, county, zips, photo, photo2):
     if len(title) > 68: title = f"{name} House Painters | Arrowhead Painting"
     meta = {
         "title": title,
-        "description": (lambda d: d if len(d) <= 160 else f"Top-rated {name} house painters for exterior painting, interior painting, and wood rot repair in {name}, {state}. Free estimates.")(f"Top-rated {name} house painters. Exterior painting, interior painting, wood rot repair, siding repair, and cabinet painting in {name}, {state}. Free estimates."),
+        "description": (lambda d: d if len(d) <= 160 else f"Locally owned {name} house painters for exterior painting, interior painting, and wood rot repair in {name}, {state}. Free estimates.")(f"Locally owned {name} house painters. Exterior painting, interior painting, wood rot repair, siding repair, and cabinet painting in {name}, {state}. Free estimates."),
         "path": f"/service-areas/{slug}/",
         "nav": "locations",
         "og": photo,
@@ -114,7 +114,7 @@ def page(slug, name, state, county, zips, photo, photo2):
       <!--#crumbs-->
       <p class="kicker" >{name}, {state}</p>
       <h1>Your Trusted {name} Painting Contractor</h1>
-      <p class="lede">Top-rated {name} house painters for exterior painting, interior painting, wood rot repair, and siding repair, delivered with white-glove service and backed by a written warranty.</p>
+      <p class="lede">Locally owned {name} house painters for exterior painting, interior painting, wood rot repair, and siding repair, delivered with white-glove service and backed by a written warranty.</p>
       <div class="hero-actions">
         <a class="btn btn-red btn-lg" href="/contact/">Request A Free Estimate</a>
         <a class="btn btn-ghost-light btn-lg" href="tel:{{{{tel}}}}">Call {{{{phone}}}}</a>
