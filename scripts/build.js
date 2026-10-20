@@ -77,6 +77,8 @@ function iconFor(title) {
   if (/moisture|rain/.test(t)) return "rain";
   return "shield";
 }
+// Curly apostrophes in search snippets (Google sometimes shows a straight ' as "&#39;")
+const curly = (s) => String(s).replace(/'/g, "’");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 function partial(name) {
@@ -252,7 +254,7 @@ const businessLd = {
 function pageLd(meta, url) {
   const out = [businessLd];
   if (meta.path === "/") out.push({ "@context": "https://schema.org", "@type": "WebSite", "@id": `${SITE}/#website`, url: `${SITE}/`, name: BUSINESS.name, publisher: { "@id": `${SITE}/#business` }, inLanguage: "en-US" });
-  out.push({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${url}#webpage`, url, name: meta.title, description: meta.description, isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#business` }, primaryImageOfPage: `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`, inLanguage: "en-US" });
+  out.push({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${url}#webpage`, url, name: curly(meta.title), description: curly(meta.description), isPartOf: { "@id": `${SITE}/#website` }, about: { "@id": `${SITE}/#business` }, primaryImageOfPage: `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`, inLanguage: "en-US" });
   if (meta.crumbs) {
     out.push({
       "@context": "https://schema.org",
@@ -283,7 +285,7 @@ function pageLd(meta, url) {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: meta.h1 || meta.title,
-      description: meta.description,
+      description: curly(meta.description),
       datePublished: meta.article.date,
       dateModified: meta.article.updated || meta.article.date,
       image: { "@type": "ImageObject", url: `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`, width: 1200, height: 630 },
@@ -369,8 +371,8 @@ for (const { file, meta, body } of pages) {
     );
 
   let head = header
-    .replace(/\{\{title\}\}/g, esc(meta.title))
-    .replace(/\{\{description\}\}/g, esc(meta.description))
+    .replace(/\{\{title\}\}/g, esc(curly(meta.title)))
+    .replace(/\{\{description\}\}/g, esc(curly(meta.description)))
     .replace(/\{\{canonical\}\}/g, url)
     .replace(/\{\{ogImage\}\}/g, `${SITE}/assets/og/${meta.og || "hero-charcoal-home"}.jpg`)
     .replace(/\{\{ogAlt\}\}/g, esc(meta.ogAlt || meta.title))
