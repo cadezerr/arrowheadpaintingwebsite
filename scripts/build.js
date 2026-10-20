@@ -34,7 +34,7 @@ const crypto = require("crypto");
 const assetHashes = {};
 function assetHash(rel) {
   if (!(rel in assetHashes)) {
-    try { assetHashes[rel] = crypto.createHash("md5").update(fs.readFileSync(path.join(src, "assets", rel))).digest("hex").slice(0, 8); }
+    try { assetHashes[rel] = crypto.createHash("md5").update(fs.readFileSync(path.join(src, "assets", rel))).digest("hex").slice(0, 8) + (rel.startsWith("video/") ? "r2" : ""); }
     catch (e) { assetHashes[rel] = VERSION; }
   }
   return assetHashes[rel];

@@ -47,6 +47,9 @@ const redirects = {
 };
 
 function send(res, status, body, headers = {}) {
+  // Always send an exact length: iPhones (and the CDN in front of the site) need it to
+  // serve video in byte ranges; without it responses go out "chunked" and iOS won't play.
+  if (body != null && !("content-length" in headers)) headers["content-length"] = Buffer.byteLength(body);
   res.writeHead(status, headers);
   res.end(body);
 }
@@ -64,7 +67,7 @@ function serveFile(req, res, file, status = 200) {
       "content-type": types[ext] || "application/octet-stream",
       "cache-control": ext === ".html" ? "no-cache" : /\.(webp|png|jpg|woff2?|mp4|webm)$/.test(ext) ? "public, max-age=2592000" : "public, max-age=3600",
       "x-content-type-options": "nosniff",
-      vary: "Accept-Encoding",
+      ...(compressible.has(ext) ? { vary: "Accept-Encoding" } : {}),
     };
     headers["accept-ranges"] = "bytes";
     const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
