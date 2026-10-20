@@ -27,8 +27,10 @@
   // ---- Mobile menu ----
   var menuBtn = document.querySelector("[data-menu-btn]");
   var nav = document.querySelector("[data-nav]");
+  function placeNav() { if (header) nav.style.top = Math.max(0, Math.round(header.getBoundingClientRect().bottom)) + "px"; }
   function setMenu(open) {
-    if (open && header) nav.style.top = Math.round(header.getBoundingClientRect().bottom) + "px";
+    if (open) placeNav();
+    doc.classList.toggle("menu-open", open);
     nav.classList.toggle("open", open);
     if (!open) document.querySelectorAll(".has-sub.open").forEach(function (o) { o.classList.remove("open"); var t = o.querySelector("[data-sub-toggle]"); if (t) t.setAttribute("aria-expanded", "false"); });
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -38,7 +40,27 @@
     menuBtn.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); menuBtn.focus(); } });
     nav.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
-    window.addEventListener("resize", function () { if (window.innerWidth > 1020 && nav.classList.contains("open")) setMenu(false); });
+    window.addEventListener("resize", function () {
+      if (!nav.classList.contains("open")) return;
+      if (window.innerWidth > 1020) setMenu(false); else placeNav();
+    });
+    // iPhone: keep the page behind the open menu from scrolling (Safari ignores overflow:hidden),
+    // so the header never slides away and leaves a gap above the menu.
+    var startY = 0;
+    nav.addEventListener("touchstart", function (e) { startY = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener("touchmove", function (e) {
+      if (!nav.classList.contains("open")) return;
+      if (!nav.contains(e.target)) { e.preventDefault(); return; }
+      var dy = e.touches[0].clientY - startY;
+      var atTop = nav.scrollTop <= 0, atBottom = nav.scrollTop + nav.clientHeight >= nav.scrollHeight - 1;
+      if (nav.scrollHeight <= nav.clientHeight || (atTop && dy > 0) || (atBottom && dy < 0)) e.preventDefault();
+    }, { passive: false });
+    document.addEventListener("wheel", function (e) {
+      if (!nav.classList.contains("open")) return;
+      var atTop = nav.scrollTop <= 0, atBottom = nav.scrollTop + nav.clientHeight >= nav.scrollHeight - 1;
+      if (!nav.contains(e.target) || nav.scrollHeight <= nav.clientHeight || (atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) e.preventDefault();
+    }, { passive: false });
+    window.addEventListener("scroll", function () { if (nav.classList.contains("open")) placeNav(); }, { passive: true });
   }
 
   // ---- Dropdown toggles (tap on mobile, keyboard on desktop) ----

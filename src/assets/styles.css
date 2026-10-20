@@ -1119,3 +1119,11 @@ body { overscroll-behavior-x: none; }
 @media (max-width: 760px) {
   .hero .hero-media .hero-still, .hero .hero-media .hero-video { object-position: 38% 50%; }
 }
+
+/* Mobile menu: lock the page behind it and keep it pinned under the header */
+@media (max-width: 1020px) {
+  /* No overflow:hidden here: it breaks the sticky header (it jumps off-screen). Scrolling is blocked in JS instead. */
+  body.menu-open, html.menu-open body { overflow: visible; }
+  .nav { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; bottom: 0; }
+  .nav.open { box-shadow: 0 -1px 0 var(--line); }
+}
