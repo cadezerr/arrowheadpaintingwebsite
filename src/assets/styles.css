@@ -1127,3 +1127,8 @@ body { overscroll-behavior-x: none; }
   .nav { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; bottom: 0; }
   .nav.open { box-shadow: 0 -1px 0 var(--line); }
 }
+
+/* Cursor glow is for mouse users only; phones "stick" :hover after a tap and showed it mid-screen */
+@media (hover: none), (pointer: coarse) {
+  .hero::after { display: none !important; }
+}
